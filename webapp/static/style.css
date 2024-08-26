@@ -296,8 +296,7 @@ body {
 
 .boxplot-chart-size {
     width: 100%; /* or a specific value like 600px */
-    height: 400px; /* or any height you prefer */
-  }
+    height: auto; /* Ensure the chart maintains its aspect ratio */  }
 
 .iconholder {
 width: 100px;
@@ -323,9 +322,16 @@ justify-content: center;
 
     }
 }
+
+
+
+
 .chart-container, .table-container {
+  display: none;
+  height: 100%;
   width: 100%;
-  height: auto;
+  position: relative;
+  
 }
 .active {
   display: block;
@@ -516,7 +522,7 @@ justify-content: center;
 /* Ensure the white grid or background scales appropriately */
 canvas {
   max-width: 100%;
-  max-height: 100%;
+  height: auto; /* Scale height automatically */
 }
 
 @media (max-width: 768px) {
