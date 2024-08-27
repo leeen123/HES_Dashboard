@@ -20,43 +20,48 @@
       <li class="nav-item">
         <a class="nav-link active" href="/test" id="compare-link">Comparing Analysis</a>
       </li>
+      </li>
     </ul>
   </nav>
 
-  <!-- Plot and Descriptive Statistics Section -->
-  <div class="col-md-3 d-flex flex-column px-0">
-    <div class="blockarea mt-4 mb-3">
-        <h4 for="variable" id="x-variable-title" class="block-title">Log Per Capita Income</h4>
-        <div id="x-variable-description" class="text-center center-content variable-description">
-            <div class="iconholder">
-                <svg id="x-variable-icon" width="64" height="64" viewBox="0 0 64 64">
-                    <!-- Placeholder for X-axis variable icon -->
-                </svg>
+<!-- Plot and Descriptive Statistics Section -->
+  <div id="shap-plot-section" class="container-cus">
+    <div class="row">
+      <!-- The 2nd areas -->
+      <!-- Plot and Descriptive Statistics Section -->
+      <div class="col-md-3 d-flex flex-column px-0">
+        <div class="blockarea mt-4 mb-3">
+            <h4 for="variable" id="x-variable-title" class="block-title">Log Per Capita Income</h4>
+            <div id="x-variable-description" class="text-center center-content variable-description">
+                <div class="iconholder">
+                    <svg id="x-variable-icon" width="64" height="64" viewBox="0 0 64 64">
+                        <!-- Placeholder for X-axis variable icon -->
+                    </svg>
+                </div>
+                <p id="x-variable-text">
+                    Measures the per capita income of household heads in log scale. The per capita income is calculated using OECD-equivalence scale.
+                </p>
             </div>
-            <p id="x-variable-text">
-                Measures the per capita income of household heads in log scale. The per capita income is calculated using OECD-equivalence scale.
-            </p>
+        </div>
+        <div class="blockarea mb-4">
+            <h4 class="block-title">Pivot Table</h4>
+            <div class="table-responsive pt-3">
+                <table class="table table-striped table-tight-padding">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>B40</th>
+                            <th>M40</th>
+                            <th>T20</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cross-tab-body">
+                        <!-- Table rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <div class="blockarea mb-4">
-        <h4 class="block-title">Pivot Table</h4>
-        <div class="table-responsive pt-3">
-            <table class="table table-striped table-tight-padding">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>B40</th>
-                        <th>M40</th>
-                        <th>T20</th>
-                    </tr>
-                </thead>
-                <tbody id="cross-tab-body">
-                    <!-- Table rows will be inserted here by JavaScript -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
       
       <!-- Col-md-8 area -->
       <div style="flex: 0 0 75%;">
@@ -150,69 +155,72 @@
       </div>
         
       
-        <div class="blockarea ml-3 mb-4" style="height: 72.5vh; ">
-          <div class="px-3 d-flex flex-row justify-content-around">
-            <div class="chart-container active" id="chart-container">
-              <canvas id="boxplotChart" class="boxplot-chart-size"></canvas>
+      <div class="blockarea ml-3 mb-4" style="height: 72.5vh; display: flex; flex-direction: column;">
+        <div class="px-3 d-flex justify-content-around flex-grow-1" style="overflow: hidden;">
+            <div class="chart-container active" id="chart-container" style="flex: 1; min-width: 48%; height: 100%;">
+                <canvas id="boxplotChart" class="boxplot-chart-size" style="height: 100%; width: 100%;"></canvas>
             </div>
-            <div class="chart-container" id="chart-container2">
-              <canvas id="ic-chart" class="boxplot-chart-size"></canvas>
+            <div class="chart-container" id="chart-container2" style="flex: 1; min-width: 48%; height: 100%;">
+                <canvas id="ic-chart" class="boxplot-chart-size" style="height: 100%; width: 100%;"></canvas>
             </div>
-            <div class="px-3 pt-2 mx-4 table-container w-100" id="table-container">
-              <table class="table table-bordered table-hover" id="dataTable">
+        </div>
+        <div class="px-3 pt-2 mx-4 table-container" id="table-container" style="flex: 1; overflow-y: auto; width: 100%;">
+            <table class="table table-bordered table-hover" id="dataTable" style="height: 100%; width: 100%;">
                 <thead>
-                  <tr>
-                    <th>Category</th>
-                    <th colspan="8" class="text-center">Value</th>
-                  </tr>
+                    <tr>
+                        <th>Category</th>
+                        <th colspan="8" class="text-center">Value</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <!-- Table data will be dynamically added here -->
+                    <!-- Table data will be dynamically added here -->
                 </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="px-4 row mt-4">
-            <div class="col-md-1">
-              <h5 class="mb-0">Options:</h5>
-            </div>
-            <div class="col-md-11 funkyradio d-flex align-items-center justify-content-center" id="checkboxContainer">
-              <!-- Checkboxes -->
-              <div class="form-check form-check-inline funkyradio-red">
-                <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox1" value="0" checked>
-                <label class="" for="checkbox1">Cluster 0</label>
-              </div>
-              <div class="form-check form-check-inline funkyradio-orange">
-                <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox2" value="1" checked>
-                <label class="" for="checkbox2">Cluster 1</label>
-              </div>
-              <div class="form-check form-check-inline funkyradio-green">
-                <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox3" value="2" checked>
-                <label class="" for="checkbox3">Cluster 2</label>
-              </div>
-              <div class="form-check form-check-inline funkyradio-info">
-                <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox4" value="3" checked>
-                <label class="" for="checkbox4">Cluster 3</label>
-              </div>
-              <div class="form-check form-check-inline funkyradio-blue">
-                <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox5" value="4" checked>
-                <label class="" for="checkbox5">Cluster 4</label>
-              </div>
-              <div class="form-check form-check-inline funkyradio-primary">
-                <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox6" value="B40" checked>
-                <label class="" for="checkbox6">B40</label>
-              </div>
-              <div class="form-check form-check-inline funkyradio-warning">
-                <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox7" value="M40" checked>
-                <label class="" for="checkbox7">M40</label>
-              </div>
-              <div class="form-check form-check-inline funkyradio-danger">
-                <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox8" value="T20" checked>
-                <label class="" for="checkbox8">T20</label>
-              </div>
-            </div>
-          </div>
+            </table>
         </div>
+        <div class="px-4 row mt-4" style="justify-content: center;">
+            <div class="col-md-1">
+                <h5 class="mb-0">Options:</h5>
+            </div>
+            <div class="col-md-11 funkyradio d-flex align-items-center justify-content-center flex-wrap" id="checkboxContainer">
+                <!-- Checkboxes -->
+                <div class="form-check form-check-inline funkyradio-red">
+                    <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox1" value="0" checked>
+                    <label class="" for="checkbox1">Cluster 0</label>
+                </div>
+                <div class="form-check form-check-inline funkyradio-orange">
+                  <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox2" value="1" checked>
+                  <label class="" for="checkbox2">Cluster 1</label>
+                </div>
+                <div class="form-check form-check-inline funkyradio-green">
+                    <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox3" value="2" checked>
+                    <label class="" for="checkbox3">Cluster 2</label>
+                </div>
+                <div class="form-check form-check-inline funkyradio-info">
+                    <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox4" value="3" checked>
+                    <label class="" for="checkbox4">Cluster 3</label>
+                </div>
+                <div class="form-check form-check-inline funkyradio-blue">
+                    <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox5" value="4" checked>
+                    <label class="" for="checkbox5">Cluster 4</label>
+                </div>
+                <div class="form-check form-check-inline funkyradio-primary">
+                    <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox6" value="B40" checked>
+                    <label class="" for="checkbox6">B40</label>
+                </div>
+                <div class="form-check form-check-inline funkyradio-warning">
+                    <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox7" value="M40" checked>
+                    <label class="" for="checkbox7">M40</label>
+                </div>
+                <div class="form-check form-check-inline funkyradio-danger">
+                    <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox8" value="T20" checked>
+                    <label class="" for="checkbox8">T20</label>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+    
+    
       </div>
     </div>
   </div>
