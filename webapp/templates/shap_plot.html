@@ -97,12 +97,13 @@
       <div class="col-md-9 pr-0 my-4">
         <!-- The 3th areas -->
         <div class="d-flex">
-          <div class="col-6 blockarea" style="height: 350px;">
+          <div class="col-6 blockarea d-flex flex-column" style="height: auto;">
             <h5 class="block-title">SHAP Dependence Plot</h5>
-            <div class="d-flex justify-content-start py-4">
-              <img id="shap-plot" src="static/shap_plot.png" alt="SHAP Dependence Plot" class="img-fluid" style="width: 80%;">
+            <div class="d-flex justify-content-start align-items-start flex-grow-1" style="width: 100%;">
+              <img id="shap-plot" src="static/shap_plot.png" alt="SHAP Dependence Plot" class="img-fluid" style="max-width: 100%; height: auto; flex-grow: 1;">
             </div>
           </div>
+
           <div class="ml-3" style="flex: 0 0 50%">
               <!-- Here, at least 3 block area -->
               <div class="blockarea p-1 cardfont">
@@ -450,5 +451,50 @@
         updatePlot();
       });
   </script>
+  <style>
+  
+/* Default styling for desktop */
+.container-cus {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blockarea {
+  flex: 1;
+  margin: 10px;
+}
+
+/* Mobile-specific styling */
+@media (max-width: 768px) {
+  .container-cus {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ensure the form section occupies the top space */
+  #shap-plot-section .col-md-3 {
+    order: -1; /* This moves the form section to the top on mobile */
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #shap-plot-section .col-md-9 {
+    width: 100%;
+    order: 1; /* This keeps the image section below the form on mobile */
+  }
+
+  /* Adjust content stacking for other areas */
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .ml-3 {
+    margin-left: 0 !important;
+    margin-top: 20px; /* Adds space between stacked elements */
+  }
+}
+
+
+  </style>
 </body>
 </html>
