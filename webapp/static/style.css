@@ -541,7 +541,7 @@ canvas {
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
   /* border: 1px solid #ddd; */
   box-sizing: border-box;
   flex-wrap: nowrap;
