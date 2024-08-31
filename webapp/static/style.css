@@ -296,7 +296,8 @@ body {
 
 .boxplot-chart-size {
     width: 100%; /* or a specific value like 600px */
-    height: auto; /* Ensure the chart maintains its aspect ratio */  }
+    height: 400px; /* or any height you prefer */
+  }
 
 .iconholder {
 width: 100px;
@@ -322,15 +323,8 @@ justify-content: center;
 
     }
 }
-
 .chart-container, .table-container {
   display: none;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  flex: 1;
-  overflow: auto; /* Allow scrolling if content overflows */
-
 }
 .active {
   display: block;
@@ -443,7 +437,6 @@ justify-content: center;
 .table-tight-padding th {
   padding: 6px 12px; /* Adjust the padding values as needed */
 }
-
 
 /*  */
 /* Ensure the entire layout uses Flexbox for responsiveness */
@@ -625,8 +618,10 @@ canvas {
   }
 }
 
+
+/* 不能按的键颜色 */
 .disabled {
-  color: #CECECE !important;
+  color: #060606 !important;
   pointer-events: none;
 }
 
@@ -634,11 +629,7 @@ canvas {
   pointer-events: none;
 }
 
-.custom-cursor-target::after {
-  content: '❌';
-  position: absolute;
-  right: 10px;
-}
+
 
 .dropdown-item.custom-cursor-target:hover {
   cursor: not-allowed;
