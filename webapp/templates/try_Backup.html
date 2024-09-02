@@ -10,19 +10,24 @@
 </head>
 <body>
   <!-- Sticky Navbar -->
-  <nav class="blockarea navbar1" style="padding: 10px 20px;">
+  <div class="blockarea navbar1" style="padding: 10px 20px;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
     <a class="navbar-brand" href="#">Expenditure Analysis</a>
-    <button class="navbar-toggler" onclick="toggleNavbar()">☰</button>
-    <ul class="navbar-nav d-flex flex-row" id="navbarNav">
-      <li class="nav-item">
-        <a class="nav-link" href="/" id="shap-link">SHAP Plot Analysis</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/test" id="compare-link">Comparing Analysis</a>
-      </li>
-      </li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav d-flex flex-row" id="navbarNav">
+        <li class="nav-item">
+            <a class="nav-link" href="/" id="shap-link" style="margin-right: 10px;">SHAP Plot Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/test" id="compare-link">Comparing Analysis</a>
+          </li>
+      </ul>
+    </div>
   </nav>
+</div>
 
 <!-- Plot and Descriptive Statistics Section -->
   <div id="shap-plot-section" class="container-cus">
@@ -65,94 +70,96 @@
       
       <!-- Col-md-8 area -->
       <div class="mt-4" style="flex: 0 0 75%;">
-        <div class="d-flex justify-content-between graphical-result-container">
-          <div class="graphical-result-label">
-              <h3 id="content-title" style="margin-bottom: 0px; font-weight: 800; color: rgb(75, 70, 70)">
-              Graphical Result</h3>
+        <div class="ml-3 mt-4 mb-3 pl-3 row d-flex align-items-center justify-content-between">
+          <div style="font-family: 'Poppins', sans-serif;">
+            <h3 id="content-title" style="margin-bottom: 0px; font-weight: 800; color: rgb(75, 70, 70)">Graphical Result</h3>
           </div>
-          <div class="dropdown-group">
-              <form id="shap-plot-form" style="margin-right: 10px;">
-                <div class="mr-3">
-                  <select name="variable" id="variable" class="form-control btn btn-info custom-form dropdown-toggle income-button" required>
-                      <option value="Log_Inc">Log Per Capita Income</option>
-                      <option value="Highest_Certificate">Educational Level</option>
-                      <option value="Saiz_HH">Household Size</option>
-                      <option value="Age">Age</option>
-                      <option value="Sex">Sex</option>
-                      <option value="Strata">Strata</option>
-                      <option value="Ethnic_Bumiputera">Ethnic-Bumiputera</option>
-                      <option value="Ethnic_Chinese">Ethnic-Chinese</option>
-                      <option value="Ethnic_Indian">Ethnic-Indian</option>
-                      <option value="Ethnic_Others">Ethnic-Others</option>
-                      <option value="Region_Centre">Region-Centre</option>
-                      <option value="Region_East">Region-East</option>
-                      <option value="Region_Eastern Malaysia">Region-Eastern Malaysia</option>
-                      <option value="Region_North">Region-North</option>
-                      <option value="Region_South">Region-South</option>
-                  </select>
-                </div>
-              </form>
-              <div id="dropdown1" class="dropdown mr-3">
-                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Chart <i class="fas fa-chevron-down"></i>
-                </button>
-                <ul id="dropdown-menu1" class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li>
-                    <a class="dropdown-item" href="#" data-value="chart">
-                      Chart
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#" data-value="table">
-                      Table
-                    </a>
-                  </li>
-                </ul>
+          <div class="row align-items-center col-auto mr-1">
+            <form id="shap-plot-form">
+              <div class="mr-3">
+                <select name="variable" id="variable" class="form-control btn btn-info custom-form dropdown-toggle" style="min-height: 52.6px;" required>
+                  <option value="Log_Inc">Log Per Capita Income</option>
+                  <option value="Highest_Certificate">Educational Level</option>
+                  <option value="Saiz_HH">Household Size</option>
+                  <option value="Age">Age</option>
+                  <option value="Sex">Sex</option>
+                  <option value="Strata">Strata</option>
+                  <option value="Ethnic_Bumiputera">Ethnic-Bumiputera</option>
+                  <option value="Ethnic_Chinese">Ethnic-Chinese</option>
+                  <option value="Ethnic_Indian">Ethnic-Indian</option>
+                  <option value="Ethnic_Others">Ethnic-Others</option>
+                  <option value="Region_Centre">Region-Centre</option>
+                  <option value="Region_East">Region-East</option>
+                  <option value="Region_Eastern Malaysia">Region-Eastern Malaysia</option>
+                  <option value="Region_North">Region-North</option>
+                  <option value="Region_South">Region-South</option>
+                </select>
               </div>
-              <div id="dropdown2" class="dropdown">
-                  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                      <svg fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve">
-                          <path id="box--plot_1_" d="M31,31.36H1c-0.199,0-0.36-0.161-0.36-0.36V1h0.72v29.64H31V31.36z M14,27.36H6v-0.72h3.64v-3.28H6
-                             c-0.199,0-0.36-0.161-0.36-0.36V11c0-0.199,0.161-0.36,0.36-0.36h3.64V7.36H6V6.64h8v0.72h-3.64v3.28H14
-                             c0.199,0,0.36,0.161,0.36,0.36v12c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H14V27.36z M6.36,22.64h7.28v-5.28H6.36V22.64z
-                              M6.36,16.64h7.28v-5.28H6.36V16.64z M28,23.36h-8v-0.72h3.64v-3.28H20c-0.199,0-0.36-0.161-0.36-0.36V7
-                             c0-0.199,0.161-0.36,0.36-0.36h3.64V3.36H20V2.64h8v0.72h-3.64v3.28H28c0.199,0,0.36,0.161,0.36,0.36v12
-                             c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H28V23.36z M20.36,18.64h7.279v-5.28H20.36V18.64z M20.36,12.64h7.279V7.36H20.36V12.64z"
-                          />
-                          <rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>
-                        </svg>Boxplot Chart <i class="fas fa-chevron-down"></i>
-                  </button>
-                  <ul id="dropdown-menu2" class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                    <li>
-                      <a class="dropdown-item" href="#" data-value="boxplot">
-                          <svg fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve">
-                              <path id="box--plot_1_" d="M31,31.36H1c-0.199,0-0.36-0.161-0.36-0.36V1h0.72v29.64H31V31.36z M14,27.36H6v-0.72h3.64v-3.28H6
-                                 c-0.199,0-0.36-0.161-0.36-0.36V11c0-0.199,0.161-0.36,0.36-0.36h3.64V7.36H6V6.64h8v0.72h-3.64v3.28H14
-                                 c0.199,0,0.36,0.161,0.36,0.36v12c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H14V27.36z M6.36,22.64h7.28v-5.28H6.36V22.64z
-                                  M6.36,16.64h7.28v-5.28H6.36V16.64z M28,23.36h-8v-0.72h3.64v-3.28H20c-0.199,0-0.36-0.161-0.36-0.36V7
-                                 c0-0.199,0.161-0.36,0.36-0.36h3.64V3.36H20V2.64h8v0.72h-3.64v3.28H28c0.199,0,0.36,0.161,0.36,0.36v12
-                                 c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H28V23.36z M20.36,18.64h7.279v-5.28H20.36V18.64z M20.36,12.64h7.279V7.36H20.36V12.64z"
-                              />
-                              <rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>
-                            </svg>Boxplot Chart
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#" data-value="bar">
-                          <svg viewBox="0 -1.5 2253 2253" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect id="stacked_bar_chart" x="1.997" y="0" width="2250" height="2250" style="fill:none;"></rect> <rect x="397.831" y="1187.5" width="312.5" height="666.667" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="397.831" y="1000" width="312.5" height="187.5" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="397.831" y="708.333" width="312.5" height="281.25" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1437.5" width="312.5" height="416.667" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="1229.17" width="312.5" height="625" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1312.5" width="312.5" height="125" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="914.583" width="312.5" height="314.583" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1062.5" width="312.5" height="250" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="395.833" width="312.5" height="518.75" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <g> <path d="M289.497,387.5l-100,-200l-100,200l200,-0Z" style="fill:#202020;"></path> <path d="M1864.5,1962.5l200,100l-200,100l0,-200Z" style="fill:#202020;"></path> <path d="M189.497,347.5l0,1715l1715,-0" style="fill:none;stroke:#202020;stroke-width:66.67px;"></path> </g> </g></svg>
-                          Stacked Bar Chart
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#" data-value="pie">
-                      <svg viewBox="0 -1.5 2253 2253" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><rect id="donut_chart" x="1.997" y="0" width="2250" height="2250" style="fill:none;"></rect><path d="M1147.83,208.333c-517.767,0 -937.5,419.733 -937.5,937.5c-0,428.307 290.274,802.155 705.228,908.271l116.136,-454.135c-207.477,-53.058 -352.614,-239.982 -352.614,-454.136c-0,-258.883 209.866,-468.75 468.75,-468.75l-0,-468.75Z" style="fill:#4f4f4f;stroke:#202020;stroke-width:66.67px;"></path><path d="M1997.49,749.576c-153.977,-330.174 -485.321,-541.243 -849.663,-541.243l-0,468.704c182.171,0 347.843,105.535 424.832,270.622l424.831,-198.083Z" style="fill:#858585;stroke:#202020;stroke-width:66.67px;"></path><path d="M905.188,2051.39c500.124,134.008 1014.19,-162.788 1148.2,-662.913c64.353,-240.168 30.664,-496.064 -93.656,-711.393l-405.95,234.375c62.16,107.665 79.005,235.613 46.828,355.697c-67.003,250.062 -324.036,398.46 -574.099,331.456l-121.321,452.778Z" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></path></g></svg>  
-                      Multi Series Pie Chart
-                      </a>
-                    </li>
-                  </ul>
-              </div>
+            </form>
+            
+            <div id="dropdown1" class="dropdown mr-3">
+              <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Chart <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul id="dropdown-menu1" class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                  <a class="dropdown-item" href="#" data-value="chart">
+                    Chart
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-value="table">
+                    Table
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div id="dropdown2" class="dropdown">
+              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                
+                <svg fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve">
+                  <path id="box--plot_1_" d="M31,31.36H1c-0.199,0-0.36-0.161-0.36-0.36V1h0.72v29.64H31V31.36z M14,27.36H6v-0.72h3.64v-3.28H6
+                     c-0.199,0-0.36-0.161-0.36-0.36V11c0-0.199,0.161-0.36,0.36-0.36h3.64V7.36H6V6.64h8v0.72h-3.64v3.28H14
+                     c0.199,0,0.36,0.161,0.36,0.36v12c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H14V27.36z M6.36,22.64h7.28v-5.28H6.36V22.64z
+                      M6.36,16.64h7.28v-5.28H6.36V16.64z M28,23.36h-8v-0.72h3.64v-3.28H20c-0.199,0-0.36-0.161-0.36-0.36V7
+                     c0-0.199,0.161-0.36,0.36-0.36h3.64V3.36H20V2.64h8v0.72h-3.64v3.28H28c0.199,0,0.36,0.161,0.36,0.36v12
+                     c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H28V23.36z M20.36,18.64h7.279v-5.28H20.36V18.64z M20.36,12.64h7.279V7.36H20.36V12.64z"
+                  />
+                  <rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>
+                </svg>Boxplot Chart <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul id="dropdown-menu2" class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                <li>
+                  <a class="dropdown-item" href="#" data-value="boxplot">
+                    <svg fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve">
+                      <path id="box--plot_1_" d="M31,31.36H1c-0.199,0-0.36-0.161-0.36-0.36V1h0.72v29.64H31V31.36z M14,27.36H6v-0.72h3.64v-3.28H6
+                         c-0.199,0-0.36-0.161-0.36-0.36V11c0-0.199,0.161-0.36,0.36-0.36h3.64V7.36H6V6.64h8v0.72h-3.64v3.28H14
+                         c0.199,0,0.36,0.161,0.36,0.36v12c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H14V27.36z M6.36,22.64h7.28v-5.28H6.36V22.64z
+                          M6.36,16.64h7.28v-5.28H6.36V16.64z M28,23.36h-8v-0.72h3.64v-3.28H20c-0.199,0-0.36-0.161-0.36-0.36V7
+                         c0-0.199,0.161-0.36,0.36-0.36h3.64V3.36H20V2.64h8v0.72h-3.64v3.28H28c0.199,0,0.36,0.161,0.36,0.36v12
+                         c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H28V23.36z M20.36,18.64h7.279v-5.28H20.36V18.64z M20.36,12.64h7.279V7.36H20.36V12.64z"
+                      />
+                      <rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>
+                    </svg>
+                    Boxplot Chart
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-value="bar">
+                    <svg viewBox="0 -1.5 2253 2253" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect id="stacked_bar_chart" x="1.997" y="0" width="2250" height="2250" style="fill:none;"></rect> <rect x="397.831" y="1187.5" width="312.5" height="666.667" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="397.831" y="1000" width="312.5" height="187.5" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="397.831" y="708.333" width="312.5" height="281.25" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1437.5" width="312.5" height="416.667" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="1229.17" width="312.5" height="625" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1312.5" width="312.5" height="125" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="914.583" width="312.5" height="314.583" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1062.5" width="312.5" height="250" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="395.833" width="312.5" height="518.75" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <g> <path d="M289.497,387.5l-100,-200l-100,200l200,-0Z" style="fill:#202020;"></path> <path d="M1864.5,1962.5l200,100l-200,100l0,-200Z" style="fill:#202020;"></path> <path d="M189.497,347.5l0,1715l1715,-0" style="fill:none;stroke:#202020;stroke-width:66.67px;"></path> </g> </g></svg>
+                    Stacked Bar Chart
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-value="pie">
+                    <svg viewBox="0 -1.5 2253 2253" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><rect id="donut_chart" x="1.997" y="0" width="2250" height="2250" style="fill:none;"></rect><path d="M1147.83,208.333c-517.767,0 -937.5,419.733 -937.5,937.5c-0,428.307 290.274,802.155 705.228,908.271l116.136,-454.135c-207.477,-53.058 -352.614,-239.982 -352.614,-454.136c-0,-258.883 209.866,-468.75 468.75,-468.75l-0,-468.75Z" style="fill:#4f4f4f;stroke:#202020;stroke-width:66.67px;"></path><path d="M1997.49,749.576c-153.977,-330.174 -485.321,-541.243 -849.663,-541.243l-0,468.704c182.171,0 347.843,105.535 424.832,270.622l424.831,-198.083Z" style="fill:#858585;stroke:#202020;stroke-width:66.67px;"></path><path d="M905.188,2051.39c500.124,134.008 1014.19,-162.788 1148.2,-662.913c64.353,-240.168 30.664,-496.064 -93.656,-711.393l-405.95,234.375c62.16,107.665 79.005,235.613 46.828,355.697c-67.003,250.062 -324.036,398.46 -574.099,331.456l-121.321,452.778Z" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></path></g></svg>
+                    Multi Series Pie Chart
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-      </div>
+        </div>
         
       
       <div class="blockarea ml-3 mb-4" style="height: 72.5vh; display: flex; flex-direction: column;">
@@ -178,12 +185,12 @@
             </table>
         </div>
         <div class="px-4 row mt-4" style="justify-content: center;">
-            <div class="col-md-1">
-                <h5 class="mb-0">Options:</h5>
+            <div class="col-md-1" >
+                <h5 class="mb-0" >Options:</h5>
             </div>
             <div class="col-md-11 funkyradio d-flex align-items-center justify-content-center flex-wrap" id="checkboxContainer">
                 <!-- Checkboxes -->
-                <div class="form-check form-check-inline funkyradio-red">
+                <div class="form-check form-check-inline funkyradio-red" >
                     <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox1" value="0" checked>
                     <label class="" for="checkbox1">Cluster 0</label>
                 </div>

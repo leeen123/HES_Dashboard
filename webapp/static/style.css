@@ -636,3 +636,13 @@ canvas {
   cursor: not-allowed;
 }
 
+@media (max-width: 768px) { /* Adjust breakpoint as necessary */
+  .navbar-collapse {
+    display: none !important; /* Ensure it's collapsed */
+  }
+}
+
+/* Show the navbar when toggler is clicked */
+.navbar-collapse.show {
+  display: block !important;
+}
