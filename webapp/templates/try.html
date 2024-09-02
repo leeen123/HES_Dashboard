@@ -11,19 +11,24 @@
 </head>
 <body>
   <!-- Sticky Navbar -->
-  <nav class="blockarea navbar1" style="padding: 10px 20px;">
+<div class="blockarea navbar1" style="padding: 10px 20px;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
     <a class="navbar-brand" href="#">Expenditure Analysis</a>
-    <button class="navbar-toggler" onclick="toggleNavbar()">☰</button>
-    <ul class="navbar-nav d-flex flex-row" id="navbarNav">
-      <li class="nav-item">
-        <a class="nav-link" href="/" id="shap-link">SHAP Plot Analysis</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/test" id="compare-link">Comparing Analysis</a>
-      </li>
-      </li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav d-flex flex-row" id="navbarNav">
+        <li class="nav-item">
+            <a class="nav-link" href="/" id="shap-link" style="margin-right: 10px;">SHAP Plot Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/test" id="compare-link">Comparing Analysis</a>
+          </li>
+      </ul>
+    </div>
   </nav>
+</div>
 
   <!-- Plot and Descriptive Statistics Section -->
   <div id="shap-plot-section" class="container-cus">
@@ -177,10 +182,10 @@
                 </table>
             </div>
             <div class="px-4 row mt-4" style="justify-content: center;">
-                <div class="col-md-1">
+                <div class="col-md-1"> <!-- <div class="col-auto"> 下一行 -->
                     <h5 class="mb-0">Options:</h5>
                 </div>
-                <div class="col-md-11 funkyradio d-flex align-items-center justify-content-center flex-wrap" id="checkboxContainer">
+                <div class="col-md-11 funkyradio d-flex align-items-center justify-content-center flex-wrap" id="checkboxContainer" >
                     <!-- Checkboxes -->
                     <div class="form-check form-check-inline funkyradio-red">
                         <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox1" value="0" checked>
@@ -214,7 +219,7 @@
                         <input class="funkyradio-default category-checkbox" type="checkbox" id="checkbox8" value="T20" checked>
                         <label class="" for="checkbox8">T20</label>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
       </div>
