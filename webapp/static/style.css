@@ -588,6 +588,7 @@ canvas {
   flex: 1 1 auto; /* Allow items to grow and shrink */
   /* width: 100px; Minimum width of each checkbox container */
   width: 150px; /* Set maximum width to keep uniformity */
+  max-width: 150px;
 }
 
 .label {
