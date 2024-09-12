@@ -647,3 +647,16 @@ canvas {
 .navbar-collapse.show {
   display: block !important;
 }
+
+
+
+.navbar-nav .nav-link {
+  color: #000; /* Default link color */
+  font-weight: normal; /* Default font weight */
+  text-decoration: none; /* Remove underline */
+}
+
+.navbar-nav .nav-link.active {
+  color: blue; /* Color for the active link */
+  font-weight: bold; /* Bold text for the active link */
+}
