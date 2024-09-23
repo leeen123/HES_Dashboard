@@ -101,7 +101,7 @@
           <div class="col-12 col-md-6 blockarea d-flex flex-column" style="height: auto;">
             <h5 class="block-title">SHAP Dependence Plot</h5>
             <div class="d-flex justify-content-start align-items-start flex-grow-1" style="width: 100%;">
-              <img id="shap-plot" src="static/shap_plot.png" alt="SHAP Dependence Plot" class="img-fluid" style="max-width: 100%; height: auto; flex-grow: 1;">
+              <img id="shap-plot" src="../static/shap_plot.png" alt="SHAP Dependence Plot" class="img-fluid" style="max-width: 100%; height: auto; flex-grow: 1;">
             </div>
           </div>
 
@@ -259,7 +259,7 @@
           processData: false,
           contentType: false,
           success: function(response) {
-            $('#shap-plot').attr('src', 'static/shap_plot.png?' + new Date().getTime());
+            $('#shap-plot').attr('src', '../static/shap_plot.png?' + new Date().getTime());
     
             // Render variable histogram
             renderChart('variable-histogram', response.variable_data, 'Variable Histogram', variable_selected[0]);
