@@ -97,6 +97,10 @@
                     <label for="confirm_password">Confirm Password:</label>
                     <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm your password">
                 </div>
+                <div><small>*Password must be at least 8 characters*</small></div>
+                <div><small>*Password must contain at least one upper case *</small></div>
+                <div><small>*Password must contain at least one lower case *</small></div>
+                <div><small>*Password must contain at least one digit *</small></div></br>
                 
 
                 <p>Already have an account? Login <span class="switch-form-link" onclick="showLoginForm()">Here.</span></p>
