@@ -101,9 +101,10 @@ if (isset($_POST['verify'])) {
             echo "
             <script>
                 alert('Verification successful!');
-                window.location.href = '../webapp/templates/shap_plot.php';
+                window.location.href = 'http://127.0.0.1:5000/';
             </script>
             ";
+            // 上面直接放link
         } else {
             // Delete the user if verification failed
             $deleteStmt = $conn->prepare("DELETE FROM `user` WHERE `user_id` = :user_verification_id");
