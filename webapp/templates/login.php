@@ -66,14 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "
                 <script>
                     alert('Login Successful! Check your email for OTP verification.');
-                    window.location.href = '../verification.php';
+                    window.location.href = './webapp/templates/verification.php';
                 </script>
                 ";
             } catch (Exception $e) {
                 echo "
                 <script>
                     alert('Error sending OTP: " . $e->getMessage() . "');
-                    window.location.href = '../index.php';
+                    window.location.href = './webapp/templates/index.php';
                 </script>
                 ";
             }
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "
             <script>
                 alert('Login Failed, Incorrect Password!');
-                window.location.href = '../index.php';
+                window.location.href = './webapp/templates/index.php';
             </script>
             ";
         }
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "
         <script>
             alert('Login Failed, User Not Found!');
-            window.location.href = '../index.php';
+            window.location.href = './webapp/templates/index.php';
         </script>
         ";
     }

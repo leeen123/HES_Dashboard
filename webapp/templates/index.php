@@ -1,4 +1,5 @@
-<?php include ('./conn/conn.php') ?>
+<?php include ('./webapp/conn/conn.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +55,7 @@
             <div class="login-form" id="loginForm">
                 <h2 class="text-center">Login Form</h2>
                 <p class="text-center">Fill your login details.</p>
-                <form action="./endpoint/login.php" method="POST">
+                <form action="./webapp/templates/login.php" method="POST">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="What is your name?"required>
@@ -73,7 +74,7 @@
         <div class="registration-form" id="registrationForm" style="display:none;">
             <h2 class="text-center">Registration Form</h2>
             <p class="text-center">Fill in your personal details.</p>
-            <form id="registrationFormAction" action="./endpoint/add-user.php" method="POST">
+            <form id="registrationFormAction" action="./webapp/templates/add-user.php" method="POST">
 
                 <div class="form-group registration">
                     <label for="registerUsername">Username:</label>

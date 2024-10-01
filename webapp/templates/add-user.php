@@ -1,5 +1,5 @@
 <?php
-include('../conn/conn.php');
+include('conn.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -65,7 +65,7 @@ if (isset($_POST['register'])) {
             echo "
             <script>
                 alert('Check your email for the verification code.');
-                window.location.href = '../verification.php';
+                window.location.href = './webapp/templates/verification.php';
             </script>
             ";
 
@@ -74,7 +74,7 @@ if (isset($_POST['register'])) {
             echo "
             <script>
                 alert('User Already Exists');
-                window.location.href = '../index.php';
+                window.location.href = './webapp/templates/index.php';
             </script>
             ";
         }
