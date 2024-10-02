@@ -1,4 +1,16 @@
-<?php include ('./webapp/conn/conn.php') ?>
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "intern_system";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Failed " . $e->getMessage();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +86,7 @@
         <div class="registration-form" id="registrationForm" style="display:none;">
             <h2 class="text-center">Registration Form</h2>
             <p class="text-center">Fill in your personal details.</p>
-            <form id="registrationFormAction" action="./webapp/templates/add-user.php" method="POST">
+            <form id="registrationFormAction" action="./add-user.php" method="POST">
 
                 <div class="form-group registration">
                     <label for="registerUsername">Username:</label>
