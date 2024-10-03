@@ -67,7 +67,7 @@ try {
             <div class="login-form" id="loginForm">
                 <h2 class="text-center">Login Form</h2>
                 <p class="text-center">Fill your login details.</p>
-                <form action="./webapp/templates/login.php" method="POST">
+                <form action="./login.php" method="POST">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="What is your name?"required>
