@@ -1,5 +1,5 @@
 <?php 
-    include ('./conn/conn.php');
+    include ('conn.php')
     session_start();
 
     if (isset($_SESSION['user_verification_id'])) {

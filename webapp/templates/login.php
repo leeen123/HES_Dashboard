@@ -1,23 +1,15 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "intern_system";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Failed " . $e->getMessage();
-}
+include ('conn.php')
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+// 找不到
+require 'webapp/PHPMailer/src/Exception.php';
+require 'webapp/PHPMailer/src/PHPMailer.php';
+require 'webapp/PHPMailer/src/SMTP.php';
 
 $mail = new PHPMailer(true);
 

@@ -1,16 +1,4 @@
-<?php 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "intern_system";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Failed " . $e->getMessage();
-}
-?>
+<?php include ('conn.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +50,8 @@ try {
 
         <!-- Login Area -->
         <div class="login-container">
-            <h2 class="text-center" style="color: white;">Household Expenditure Power Analysis</h2>
+        <h2 class="text-center" style="color: white; margin-top: 20px;">Household Expenditure Power Analysis</h2>
+
 
             <div class="login-form" id="loginForm">
                 <h2 class="text-center">Login Form</h2>
