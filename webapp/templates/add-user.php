@@ -1,13 +1,14 @@
 <?php
 
-include ('conn.php')
+include ('conn.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-require 'phpmailer/src/Exception.php';
-require 'webapp/phpmailer/src/PHPMailer.php';
-require 'webapp/phpmailer/src/SMTP.php';
+require '../phpmailer/src/Exception.php';
+require '../phpmailer/src/PHPMailer.php';
+require '../phpmailer/src/SMTP.php';
 
 $mail = new PHPMailer(true);
 
@@ -66,7 +67,7 @@ if (isset($_POST['register'])) {
             echo "
             <script>
                 alert('Check your email for the verification code.');
-                window.location.href = './webapp/templates/verification.php';
+                window.location.href = './verification.php';
             </script>
             ";
 
@@ -75,7 +76,7 @@ if (isset($_POST['register'])) {
             echo "
             <script>
                 alert('User Already Exists');
-                window.location.href = './webapp/templates/index.php';
+                window.location.href = './index.php';
             </script>
             ";
         }
@@ -102,7 +103,7 @@ if (isset($_POST['verify'])) {
             echo "
             <script>
                 alert('Verification successful!');
-                window.location.href = 'http://127.0.0.1:5000/';
+                window.location.href = './shap_plot.php';
             </script>
             ";
             // 上面直接放link
