@@ -24,12 +24,32 @@ k_mean_analy = pd.read_csv("../data/k_mean_analy.csv")
 # Initialize Flask app
 app = flask.Flask(__name__, template_folder='templates', static_folder='static')
 
+# index
 @app.route('/')
 def index():
-    
-
     return render_template('index.php')
 
+# login
+@app.route('/login.php', methods=['GET', 'POST'])
+def login():
+    return render_template('login.php')
+
+# verfication
+@app.route('/verification.php', methods=['GET', 'POST'])
+def verification():
+    return render_template('verification.php')
+
+# add-user
+@app.route('/add-user.php', methods=['GET', 'POST'])
+def add_user():
+    return render_template('add-user.php')
+
+# update-user
+@app.route('/update-user.php', methods=['GET', 'POST'])
+def update_user():
+    return render_template('update-user.php')
+
+# shap-plot
 @app.route('/', methods=['GET', 'POST'])
 def shap():
     if request.method == 'POST':
@@ -66,7 +86,7 @@ def shap():
 
     return render_template('shap_plot.php')
 
-
+# try
 @app.route('/test', methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
