@@ -54,7 +54,7 @@
 
 
             <div class="login-form" id="loginForm">
-                <h2 class="text-center">Login Form</h2>
+                <h2 class="text-center">Login Form</h2>`
                 <p class="text-center">Fill your login details.</p>
                 <form action="./login.php" method="POST">
                     <div class="form-group">

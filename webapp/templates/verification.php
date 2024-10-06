@@ -1,6 +1,7 @@
 <?php 
-    include ('conn.php')
+    include ('conn.php');
     session_start();
+
 
     if (isset($_SESSION['user_verification_id'])) {
         $userVerificationID = $_SESSION['user_verification_id'];

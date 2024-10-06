@@ -1,6 +1,6 @@
 <?php
 
-include ('conn.php')
+include ('conn.php');
 
 $updateUserID = $_POST['user_id'];
 $updateUsername = $_POST['username'];

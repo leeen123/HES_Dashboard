@@ -1,15 +1,17 @@
 <?php
 
-include ('conn.php')
+include ('conn.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
+
 // 找不到
-require 'webapp/PHPMailer/src/Exception.php';
-require 'webapp/PHPMailer/src/PHPMailer.php';
-require 'webapp/PHPMailer/src/SMTP.php';
+require '../phpmailer/src/Exception.php';
+require '../phpmailer/src/PHPMailer.php';
+require '../phpmailer/src/SMTP.php';
+
 
 $mail = new PHPMailer(true);
 
@@ -70,14 +72,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "
                 <script>
                     alert('Login Successful! Check your email for OTP verification.');
-                    window.location.href = './webapp/templates/verification.php';
+                    window.location.href = './verification.php';
                 </script>
                 ";
             } catch (Exception $e) {
                 echo "
                 <script>
                     alert('Error sending OTP: " . $e->getMessage() . "');
-                    window.location.href = './webapp/templates/index.php';
+                    window.location.href = './index.php';
                 </script>
                 ";
             }
@@ -85,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "
             <script>
                 alert('Login Failed, Incorrect Password!');
-                window.location.href = './webapp/templates/index.php';
+                window.location.href = './index.php';
             </script>
             ";
         }
@@ -93,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "
         <script>
             alert('Login Failed, User Not Found!');
-            window.location.href = './webapp/templates/index.php';
+            window.location.href = './index.php';
         </script>
         ";
     }
