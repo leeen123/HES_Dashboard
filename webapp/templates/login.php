@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "
                 <script>
                     alert('Login Successful! Check your email for OTP verification.');
-                    window.location.href = './verification.php';
+                    window.location.href = './verification_login.php';
                 </script>
                 ";
             } catch (Exception $e) {

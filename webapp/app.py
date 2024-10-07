@@ -39,6 +39,16 @@ def login():
 def verification():
     return render_template('verification.php')
 
+# verfication_login
+@app.route('/verification_login.php', methods=['GET', 'POST'])
+def verification_login():
+    return render_template('verification_login.php')
+
+# verfy_login
+@app.route('/verify_login.php', methods=['GET', 'POST'])
+def verify_login():
+    return render_template('verify_login.php')
+
 # add_user
 @app.route('/add_user.php', methods=['GET', 'POST'])
 def add_user():
