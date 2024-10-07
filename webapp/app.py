@@ -39,18 +39,18 @@ def login():
 def verification():
     return render_template('verification.php')
 
-# add-user
+# add_user
 @app.route('/add_user.php', methods=['GET', 'POST'])
 def add_user():
     return render_template('add_user.php')
 
-# update-user
+# update_user
 @app.route('/update_user.php', methods=['GET', 'POST'])
 def update_user():
     return render_template('update_user.php')
 
 # shap-plot
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/shap_plot.php', methods=['GET', 'POST'])
 def shap():
     if request.method == 'POST':
         variable = request.form['variable']
@@ -87,7 +87,7 @@ def shap():
     return render_template('shap_plot.php')
 
 # try
-@app.route('/test', methods=['GET', 'POST'])
+@app.route('/try.php', methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
         variable = request.form['variable']

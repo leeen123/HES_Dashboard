@@ -117,7 +117,7 @@ if (isset($_POST['verify'])) {
             echo "
             <script>
                 alert('Incorrect Verification Code. Please Register Again.');
-                window.location.href = '../index.php';
+                window.location.href = './index.php';
             </script>
             ";
         }

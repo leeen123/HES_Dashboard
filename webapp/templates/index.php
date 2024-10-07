@@ -75,7 +75,7 @@
         <div class="registration-form" id="registrationForm" style="display:none;">
             <h2 class="text-center">Registration Form</h2>
             <p class="text-center">Fill in your personal details.</p>
-            <form id="registrationFormAction" action="./add-user.php" method="POST">
+            <form id="registrationFormAction" action="./add_user.php" method="POST">
 
                 <div class="form-group registration">
                     <label for="registerUsername">Username:</label>

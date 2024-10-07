@@ -20,10 +20,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav d-flex flex-row" id="navbarNav">
         <li class="nav-item">
-            <a class="nav-link" href="/" id="shap-link" style="margin-right: 10px;">SHAP Plot Analysis</a>
+            <a class="nav-link" href="/shap_plot.php" id="shap-link" style="margin-right: 10px;">SHAP Plot Analysis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/test" id="compare-link">Comparing Analysis</a>
+            <a class="nav-link active" href="/try" id="compare-link">Comparing Analysis</a>
           </li>
       </ul>
     </div>
@@ -287,7 +287,7 @@
     }
 
     $.ajax({
-      url: '/test',
+      url: '/try',
       type: 'POST',
       data: formData,
       processData: false,
@@ -853,7 +853,7 @@
     var formData = new FormData($('#shap-plot-form')[0]);
 
     $.ajax({
-      url: '/test',
+      url: '/try',
       type: 'POST',
       data: formData,
       processData: false,
