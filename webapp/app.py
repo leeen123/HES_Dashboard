@@ -40,14 +40,14 @@ def verification():
     return render_template('verification.php')
 
 # add-user
-@app.route('/add-user.php', methods=['GET', 'POST'])
+@app.route('/add_user.php', methods=['GET', 'POST'])
 def add_user():
-    return render_template('add-user.php')
+    return render_template('add_user.php')
 
 # update-user
-@app.route('/update-user.php', methods=['GET', 'POST'])
+@app.route('/update_user.php', methods=['GET', 'POST'])
 def update_user():
-    return render_template('update-user.php')
+    return render_template('update_user.php')
 
 # shap-plot
 @app.route('/', methods=['GET', 'POST'])
