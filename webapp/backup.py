@@ -16,12 +16,17 @@ from flask import render_template, request, jsonify
 
 shap.initjs()
 
+# Load SHAP values and test data
+shap_values = pd.read_csv("../data/shap_values2.csv").to_numpy()
+x_test = pd.read_csv("../data/x_test.csv")
+k_mean_analy = pd.read_csv("../data/k_mean_analy.csv")
+
 # Initialize Flask app
 app = flask.Flask(__name__, template_folder='templates', static_folder='static')
 
 # index
-@app.route('/')
-def index():
+@app.route('/index')
+def hi():
     return render_template('index.php')
 
 # login
@@ -29,17 +34,17 @@ def index():
 def login():
     return render_template('login.php')
 
-# verification
+# verfication
 @app.route('/verification.php', methods=['GET', 'POST'])
 def verification():
     return render_template('verification.php')
 
-# verification_login
+# verfication_login
 @app.route('/verification_login.php', methods=['GET', 'POST'])
 def verification_login():
     return render_template('verification_login.php')
 
-# verify_login
+# verfy_login
 @app.route('/verify_login.php', methods=['GET', 'POST'])
 def verify_login():
     return render_template('verify_login.php')
@@ -55,15 +60,11 @@ def update_user():
     return render_template('update_user.php')
 
 # shap-plot
-@app.route('/shap_plot.php', methods=['GET', 'POST'])
-def shap_plot():
+@app.route('/', methods=['GET', 'POST'])
+def index():
     if request.method == 'POST':
         variable = request.form['variable']
         interaction_variable = request.form['interaction_variable']
-
-        # Load SHAP values and test data within the route
-        shap_values = pd.read_csv(os.path.join(os.getcwd(), "data/shap_values2.csv")).to_numpy()
-        x_test = pd.read_csv(os.path.join(os.getcwd(), "data/x_test.csv"))
 
         # Generate SHAP dependence plot
         fig, ax = plt.subplots(figsize=(6, 4))
@@ -96,13 +97,10 @@ def shap_plot():
     return render_template('shap_plot.php')
 
 # try
-@app.route('/try.php', methods=['GET', 'POST'])
+@app.route('/test', methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
         variable = request.form['variable']
-
-        # Load k_mean_analy CSV within the route
-        k_mean_analy = pd.read_csv(os.path.join(os.getcwd(), "data/k_mean_analy.csv"))
 
         # Convert DataFrame to list of dictionaries
         k_mean_analy_data = k_mean_analy[variable].tolist()

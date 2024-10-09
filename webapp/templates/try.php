@@ -1,3 +1,9 @@
+<?php
+$output = shell_exec('C:/xampp/htdocs/Branch_HES_Dashboard/webapp/app.py');
+echo $output;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
