@@ -58,65 +58,91 @@ def update_user():
 @app.route('/shap_plot.php', methods=['GET', 'POST'])
 def shap_plot():
     if request.method == 'POST':
-        variable = request.form['variable']
-        interaction_variable = request.form['interaction_variable']
+        variable = request.form.get('variable')
+        interaction_variable = request.form.get('interaction_variable')
 
-        # Load SHAP values and test data within the route
-        shap_values = pd.read_csv(os.path.join(os.getcwd(), "data/shap_values2.csv")).to_numpy()
-        x_test = pd.read_csv(os.path.join(os.getcwd(), "data/x_test.csv"))
+        if not variable or not interaction_variable:
+            return jsonify({'error': 'Please select both variable and interaction variable'}), 400
 
-        # Generate SHAP dependence plot
-        fig, ax = plt.subplots(figsize=(6, 4))
-        shap.dependence_plot(variable, shap_values, x_test, interaction_index=interaction_variable, ax=ax)
-        
-        # Adjust layout
-        fig.tight_layout()
+        try:
+            # Load SHAP values and test data
+            shap_values_path = os.path.join(os.getcwd(), "data/shap_values2.csv")
+            x_test_path = os.path.join(os.getcwd(), "data/x_test.csv")
+            
+            if not os.path.exists(shap_values_path) or not os.path.exists(x_test_path):
+                return jsonify({'error': 'CSV files not found'}), 404
 
-        # Ensure static directory exists
-        static_dir = app.static_folder
-        if not os.path.exists(static_dir):
-            os.makedirs(static_dir)
-        
-        # Save the SHAP plot to a static file
-        shap_image_path = os.path.join(static_dir, 'shap_plot.png')
-        fig.savefig(shap_image_path, bbox_inches='tight')
-        plt.close(fig)
+            shap_values = pd.read_csv(shap_values_path).to_numpy()
+            x_test = pd.read_csv(x_test_path)
 
-        # Prepare data for Chart.js
-        variable_data = x_test[variable].tolist()
-        interaction_variable_data = x_test[interaction_variable].tolist()
+            if variable not in x_test.columns or interaction_variable not in x_test.columns:
+                return jsonify({'error': 'Invalid variables'}), 400
 
-        # Return success response
-        return jsonify({
-            'shap_plot': 'static/shap_plot.png',
-            'variable_data': variable_data,
-            'interaction_variable_data': interaction_variable_data
-        })
+            # Generate SHAP dependence plot
+            fig, ax = plt.subplots(figsize=(6, 4))
+            shap.dependence_plot(variable, shap_values, x_test, interaction_index=interaction_variable, ax=ax)
+            
+            # Adjust layout and save plot
+            fig.tight_layout()
+
+            static_dir = app.static_folder
+            if not os.path.exists(static_dir):
+                os.makedirs(static_dir)
+            
+            shap_image_path = os.path.join(static_dir, 'shap_plot.png')
+            fig.savefig(shap_image_path, bbox_inches='tight')
+            plt.close(fig)
+
+            variable_data = x_test[variable].tolist()
+            interaction_variable_data = x_test[interaction_variable].tolist()
+
+            return jsonify({
+                'shap_plot': 'static/shap_plot.png',
+                'variable_data': variable_data,
+                'interaction_variable_data': interaction_variable_data
+            })
+
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
 
     return render_template('shap_plot.php')
+
 
 # try
 @app.route('/try.php', methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
-        variable = request.form['variable']
+        variable = request.form.get('variable')
 
-        # Load k_mean_analy CSV within the route
-        k_mean_analy = pd.read_csv(os.path.join(os.getcwd(), "data/k_mean_analy.csv"))
+        if not variable:
+            return jsonify({'error': 'Variable is required'}), 400
 
-        # Convert DataFrame to list of dictionaries
-        k_mean_analy_data = k_mean_analy[variable].tolist()
-        cluster_data = k_mean_analy['Cluster'].tolist()
-        income_category_data = k_mean_analy['Income_Category'].tolist()
+        try:
+            k_mean_analy_path = os.path.join(os.getcwd(), "data/k_mean_analy.csv")
+            
+            if not os.path.exists(k_mean_analy_path):
+                return jsonify({'error': 'CSV file not found'}), 404
 
-        # Return success response
-        return jsonify({
-            'variable_data': k_mean_analy_data,
-            'cluster_data': cluster_data,
-            'income_category_data': income_category_data
-        })
+            k_mean_analy = pd.read_csv(k_mean_analy_path)
+
+            if variable not in k_mean_analy.columns:
+                return jsonify({'error': 'Invalid variable'}), 400
+
+            k_mean_analy_data = k_mean_analy[variable].tolist()
+            cluster_data = k_mean_analy['Cluster'].tolist()
+            income_category_data = k_mean_analy['Income_Category'].tolist()
+
+            return jsonify({
+                'variable_data': k_mean_analy_data,
+                'cluster_data': cluster_data,
+                'income_category_data': income_category_data
+            })
+
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
 
     return render_template('try.php')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

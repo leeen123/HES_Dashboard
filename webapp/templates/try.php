@@ -29,7 +29,7 @@ echo $output;
             <a class="nav-link" href="/shap_plot.php" id="shap-link" style="margin-right: 10px;">SHAP Plot Analysis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/try" id="compare-link">Comparing Analysis</a>
+            <a class="nav-link active" href="/try.php" id="compare-link">Comparing Analysis</a>
           </li>
       </ul>
     </div>

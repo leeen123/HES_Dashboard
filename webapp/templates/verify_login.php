@@ -49,7 +49,7 @@ if (isset($_POST['register'])) {
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'chanjunyu1141@gmail.com';
-            $mail->Password   = 'your_smtp_password';
+            $mail->Password   = 'dwns mhem chbf xthq';
             $mail->SMTPSecure = 'ssl';
             $mail->Port       = 465;
 
