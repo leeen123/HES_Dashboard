@@ -1,0 +1,3 @@
+Data from JSON file: {'variable': 'Log_Inc', 'interaction_variable': 'Log_Inc'}
+Decoded variable: Log_Inc
+Decoded interaction_variable: Log_Inc
