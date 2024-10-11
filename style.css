@@ -1,0 +1,662 @@
+/* CSS for setting the view height of the plot image */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color:rgb(232, 232, 232);
+}
+
+.navbar1 {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 0;
+  z-index: 1000;
+  margin-right: 20px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.navbar-toggler {
+  display: none;
+  border: none;
+  background: transparent;
+}
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.nav-item {
+  margin-left: 20px;
+}
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.nav-link.active {
+  color: #0069da;
+}
+@media (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  .navbar-nav.show {
+    display: flex;
+  }
+  .nav-item {
+    margin: 10px 0;
+  }
+  .navbar-toggler {
+    display: block;
+  }
+}
+
+.container-cus{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.squareicon {
+    width: 40px;
+    height: 40px;
+    background-color: #4da6ff; /* Blue background color */
+    border-radius: 10px;
+    top: 20px;
+    left: 20px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+  }
+  .squareicon svg {
+    fill: #fff; /* White color */
+    width: 25px; /* Adjust as needed */
+    height: 25px; /* Adjust as needed */
+  }
+
+.blockarea {
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded borders */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Slight shadow effect */
+    padding: 20px; /* Add some padding */
+}
+
+.blockarea-small {
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded borders */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Slight shadow effect */
+}
+
+.block-title {
+    background-color: rgb(0, 0, 79);
+    color: white;
+    padding: 10px;
+    margin: -20px -20px 0px -20px;  /* Adjust the negative margins to match the padding of .blockarea */
+    text-align: center;
+}/* Updated Funky Radio Styles */
+
+.funkyradio div {
+  clear: both;
+  overflow: hidden;
+}
+
+.funkyradio label {
+  width: 100%;
+  border-radius: 3px;
+  border: 2px solid #D1D3D4;
+  font-weight: normal;
+  position: relative;
+  padding-left: 1.75em; /* Space for checkbox */
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.funkyradio input[type="radio"]:empty,
+.funkyradio input[type="checkbox"]:empty {
+  display: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label:before,
+.funkyradio input[type="checkbox"]:empty ~ label:before {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  content: '';
+  width: 1.5em; /* Adjust size of checkbox */
+  height: 1.5em; /* Adjust size of checkbox */
+  background: #ffffff;
+  border-right: 2px solid #D1D3D4;
+  transition: background-color 0.3s, border-color 0.3s; /* Add transition */
+}
+
+/* Adjust colors for different radio button states as needed */
+.funkyradio-default input[type="radio"]:checked ~ label:before,
+.funkyradio-default input[type="checkbox"]:checked ~ label:before {
+  background-color: #ccc;
+  border-color: #ccc;
+}
+
+.funkyradio-primary :hover{
+  border: 2px solid #337ab7; /* Change border color on hover */
+}
+
+.funkyradio-primary input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-primary input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #337ab7; /* Change border color on hover */
+}
+
+.funkyradio-primary input[type="radio"]:checked ~ label:before,
+.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+
+.funkyradio-blue :hover{
+  border: 2px solid #09008d; /* Change border color on hover */
+}
+
+.funkyradio-blue input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-blue input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #09008d; /* Change border color on hover */
+}
+
+.funkyradio-blue input[type="radio"]:checked ~ label:before,
+.funkyradio-blue input[type="checkbox"]:checked ~ label:before {
+  background-color: #09008d;
+  border-color: #09008d;
+}
+
+.funkyradio-green :hover{
+  border: 2px solid #166616; /* Change border color on hover */
+}
+
+.funkyradio-green input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-green input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #166616;
+}
+
+.funkyradio-green input[type="radio"]:checked ~ label:before,
+.funkyradio-green input[type="checkbox"]:checked ~ label:before {
+  background-color: #166616;
+  border-color: #166616;
+}
+
+.funkyradio-red :hover{
+  border: 2px solid #d62728; /* Change border color on hover */
+}
+
+.funkyradio-red input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-red input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #d62728;
+}
+
+.funkyradio-red input[type="radio"]:checked ~ label:before,
+.funkyradio-red input[type="checkbox"]:checked ~ label:before {
+  background-color: #d62728;
+  border-color: #d62728;
+}
+
+.funkyradio-orange :hover{
+  border: 2px solid #ff7f0e; /* Change border color on hover */
+}
+
+.funkyradio-orange input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-orange input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #ff7f0e;
+}
+
+.funkyradio-orange input[type="radio"]:checked ~ label:before,
+.funkyradio-orange input[type="checkbox"]:checked ~ label:before {
+  background-color: #ff7f0e;
+  border-color: #ff7f0e;
+}
+
+.funkyradio-warning :hover{
+  border: 2px solid #d2a925; /* Change border color on hover */
+}
+
+.funkyradio-warning input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-warning input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #d2a925;
+}
+
+.funkyradio-warning input[type="radio"]:checked ~ label:before,
+.funkyradio-warning input[type="checkbox"]:checked ~ label:before {
+  background-color: #d2a925;
+  border-color: #d2a925;
+}
+
+.funkyradio-danger :hover{
+  border: 2px solid #8a0005; /* Change border color on hover */
+}
+
+.funkyradio-danger input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-danger input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #8a0005;
+}
+
+.funkyradio-danger input[type="radio"]:checked ~ label:before,
+.funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+  background-color: #8a0005;
+  border-color: #8a0005;
+}
+
+.funkyradio-green :hover{
+  border: 2px solid #5a921d; /* Change border color on hover */
+}
+
+.funkyradio-green input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-green input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #5a921d;
+}
+
+.funkyradio-green input[type="radio"]:checked ~ label:before,
+.funkyradio-green input[type="checkbox"]:checked ~ label:before {
+  background-color: #5a921d;
+  border-color: #5a921d;
+}
+
+.funkyradio-info :hover{
+  border: 2px solid #5bc0de; /* Change border color on hover */
+}
+
+.funkyradio-info input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio-info input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  border-color: #5bc0de;
+}
+
+.funkyradio-info input[type="radio"]:checked ~ label:before,
+.funkyradio-info input[type="checkbox"]:checked ~ label:before {
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+
+  
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxplot-chart-size {
+    width: 100%; /* or a specific value like 600px */
+    height: 400px; /* or any height you prefer */
+  }
+
+.iconholder {
+width: 100px;
+height: 100px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#shap-plot, #variable-histogram, #interaction-histogram {
+    display: block;
+}
+
+.variable-description {
+    margin-top: 10px;
+}
+.cardfont{
+    font-family: Montserrat,ui-sans-serif,system-ui,sans-serif,apple color emoji,segoe ui emoji,Segoe UI Symbol,noto color emoji;
+}
+.cardfont{
+    h6,h4{
+        font-size: 1.25rem;
+
+    }
+}
+.chart-container, .table-container {
+  display: none;
+}
+.active {
+  display: block;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.icon-button svg {
+  width: 30px;
+  height: 30px;
+}
+.icon-button:hover {
+  background-color: #00dd60;
+}
+.active-button {
+  background-color: #00dd60;
+  color: white;
+}
+.button-layout{
+  background-color: rgb(207, 207, 207);
+  border-radius: 10px;
+
+}    
+.dropdown-item {
+  padding: 12px 16px; /* Adjust padding as needed */
+  font-size: 18px; /* Adjust font size as needed */
+}
+.dropdown-item svg {
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  margin-right: 10px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon vertically */
+}
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 16px; /* Adjust padding as needed */
+  font-size: 18px;
+}
+.dropdown-toggle svg {
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  margin-right: 10px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon vertically */
+}
+.custom-dropdown-button {
+  background-color: #6c757d; /* Custom background color */
+  color: #fff; /* Custom text color */
+  border: none; /* Remove border */
+}
+
+.custom-dropdown-menu {
+  background-color: #6c757d; /* Same background color as the button */
+  color: #fff; /* Custom text color */
+}
+
+.custom-dropdown-menu .dropdown-item {
+  color: #fff; /* Custom text color for items */
+}
+
+.custom-dropdown-menu .dropdown-item:hover {
+  background-color: #5a6268; /* Slightly darker shade for hover */
+}
+
+.custom-dropdown-menu .dropdown-item svg {
+  fill: #fff; /* Custom SVG icon color */
+}
+.dropdown-menu-disabled {
+  pointer-events: none; /* Disable all interactions */
+  opacity: 0.5; /* Make it visually appear disabled */
+}
+
+.btn-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.custom-dropdown-button {
+  background-color: #6c757d; /* Custom background color */
+  color: #fff; /* Custom text color */
+  border: none; /* Remove border */
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 16px; /* Adjust padding as needed */
+  font-size: 18px; /* Adjust font size as needed */
+}
+
+.custom-form option {
+  background-color: #6c757d; /* Same background color as the button */
+  color: #fff; /* Custom text color */
+  margin: 12px 16px !important;/* Adjust padding as needed */
+  text-align: start;
+}
+
+.custom-form option:hover{
+  background-color: #5a6268; /* Slightly darker shade for hover */
+}
+
+.table-tight-padding td,
+.table-tight-padding th {
+  padding: 6px 12px; /* Adjust the padding values as needed */
+}
+
+/*  */
+/* Ensure the entire layout uses Flexbox for responsiveness */
+
+
+#logPerCapitaIncome, #pivotTable {
+  flex: 1 1 30%; /* Let them take 30% width each */
+  min-width: 250px; /* Ensure they don't get too small */
+  margin: 10px;
+}
+
+.graphical-result {
+  flex: 1 1 60%; /* Take up the remaining space */
+  min-width: 400px;
+  margin: 10px;
+}
+
+/* Make the chart container responsive */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* Let height adjust naturally */
+  max-width: 100%;
+}
+
+/* Styling adjustments to buttons */
+.chart-buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.chart-buttons button {
+  flex: 1 1 auto;
+  margin: 5px;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+/* Make sure the Pivot Table stays consistent */
+.pivot-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* Ensure the Graphical Result section is flexible */
+#graphicalResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 300px;
+  padding: 15px;
+}
+
+/* Adjust the options to be flexible */
+.options-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* Chart container with controlled max height/width */
+.chart-container {
+  position: relative;
+  width: 100%; /* Keep width fluid */
+  max-width: 900px; /* Limit the max width */
+  height: 500px; /* Fix the height to avoid undesirable scaling */
+  margin: auto;
+}
+
+/* Ensure the white grid or background scales appropriately */
+canvas {
+  max-width: 100%;
+  height: auto; /* Scale height automatically */
+}
+
+@media (max-width: 768px) {
+  .funkyradio label {
+      font-size: 0.8rem; /* 较小屏幕时字体变小 */
+  }
+}
+
+@media (min-width: 769px) {
+  .funkyradio label {
+      font-size: 1rem; /* 较大屏幕时字体恢复正常 */
+  }
+}
+
+/* style for 一排线 */
+.graphical-result-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  /* background-color: #f8f9fa; */
+  /* border: 1px solid #ddd; */
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+}
+
+.graphical-result-label {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.dropdown-group {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.dropdown-group .btn {
+  white-space: nowrap;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.income-button {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.chart-button {
+  background-color: #ffc107;
+  color: white;
+}
+
+.boxplot-button {
+  background-color: #28a745;
+  color: white;
+}
+
+
+/* Container styling for dynamic resizing */
+#checkboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust gap between checkboxes as needed */
+  justify-content: center;
+  align-items: center;
+}
+
+.form-check {
+  flex: 1 1 auto; /* Allow items to grow and shrink */
+  /* width: 100px; Minimum width of each checkbox container */
+  width: 150px; /* Set maximum width to keep uniformity */
+  max-width: 150px;
+}
+
+.label {
+  font-size: 1rem; /* Base font size */
+}
+
+
+
+/* Resizing based on viewport width */
+@media (min-width: 576px) {
+  .label {
+      font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .label {
+      font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .label {
+      font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .label {
+      font-size: 1.4rem;
+  }
+}
+
+
+/* 不能按的键颜色 */
+.disabled {
+  color: #060606 !important;
+  pointer-events: none;
+}
+
+.custom-cursor-target {
+  pointer-events: none;
+}
+
+.dropdown-item.custom-cursor-target:hover {
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) { /* Adjust breakpoint as necessary */
+  .navbar-collapse {
+    display: none !important; /* Ensure it's collapsed */
+  }
+}
+
+/* Show the navbar when toggler is clicked */
+.navbar-collapse.show {
+  display: block !important;
+}
+
+
+
+.navbar-nav .nav-link {
+  color: #000; /* Default link color */
+  font-weight: normal; /* Default font weight */
+  text-decoration: none; /* Remove underline */
+}
+
+.navbar-nav .nav-link.active {
+  color: blue; /* Color for the active link */
+  font-weight: bold; /* Bold text for the active link */
+}
