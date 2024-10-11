@@ -1,7 +1,3 @@
-Data from JSON file: {'variable': 'Age', 'interaction_variable': 'Log_Inc'}
-'}
+Data from JSON file: {'variable': 'Log_Inc', 'interaction_variable': 'Log_Inc'}
 Decoded variable: Log_Inc
 Decoded interaction_variable: Log_Inc
-Decoded variable: Age
-Decoded interaction_variable: Log_Inc
-nc
