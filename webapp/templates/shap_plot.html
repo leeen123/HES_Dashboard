@@ -254,7 +254,7 @@
             success: function(response) {
               $('#shap-plot').attr('src', '../static/shap_plot.png?' + new Date().getTime());
 
-              console.log("response receievd: ", response)
+              console.log("response receievd: ", typeof(response))
       
               // Render variable histogram
               renderChart('variable-histogram', response.variable_data, 'Variable Histogram', variable_selected[0]);
