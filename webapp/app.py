@@ -55,7 +55,7 @@ def update_user():
     return render_template('update_user.php')
 
 # shap-plot
-@app.route('/shap_plot.php', methods=['GET', 'POST'])
+@app.route('/shap_plot.html', methods=['GET', 'POST'])
 def shap_plot():
     if request.method == 'POST':
         variable = request.form.get('variable')
@@ -105,11 +105,11 @@ def shap_plot():
         except Exception as e:
             return jsonify({'error': str(e)}), 500
 
-    return render_template('shap_plot.php')
+    return render_template('shap_plot.html')
 
 
 # try
-@app.route('/try.php', methods=['GET', 'POST'])
+@app.route('/test', methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
         variable = request.form.get('variable')

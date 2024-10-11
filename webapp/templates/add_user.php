@@ -1,3 +1,4 @@
+<!-- user register 后的 -->
 <?php
 
 include ('conn.php');

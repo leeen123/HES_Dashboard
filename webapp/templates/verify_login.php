@@ -1,3 +1,4 @@
+<!-- user login 的验证 -->
 <?php
 
 include('conn.php');
