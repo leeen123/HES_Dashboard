@@ -92,8 +92,8 @@ if (isset($_POST['verify'])) {
 
         if ($codeExist && $codeExist['verification_code'] == $enteredVerificationCode) {
             // OTP is correct
-            echo "<script>alert('Verification successful!'); window.location.href = './shap_plot.html';</script>";
-            session_destroy();
+            $_SESSION['authenticated'] = true;  // Mark the user as authenticated
+            echo "<script>alert('Verification successful!'); window.location.href = './shap_plot.php';</script>";
         } else {
             // OTP is incorrect
             $deleteStmt = $conn->prepare("DELETE FROM `user` WHERE `user_id` = :user_verification_id");
