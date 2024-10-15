@@ -32,6 +32,14 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
       </li>
       </li>
     </ul>
+    <!-- Logout Button -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="logout.php" id="logout-link">
+          <button class="btn btn-danger">Logout</button>
+        </a>
+      </li>
+    </ul>
   </nav>
 
   <!-- Plot and Descriptive Statistics Section -->
