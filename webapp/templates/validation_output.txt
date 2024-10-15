@@ -1,5 +1,0 @@
-Data from JSON file: {'variable': 'Log_Inc', 'interaction_variable': 'Log_Inc'}
-Decoded variable: Saiz_HH
-Decoded interaction_variable: Log_Inc
-Decoded variable: Log_Inc
-Decoded interaction_variable: Log_Inc

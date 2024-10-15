@@ -14,18 +14,9 @@ json_file_path = sys.argv[1]
 with open(json_file_path, 'r') as file:
     data = json.load(file)
 
-# Write the raw JSON data to the validation file for debugging
-with open('validation_output.txt', 'w') as f:
-    f.write(f"Data from JSON file: {data}\n")
-
 # Extract the variables from the data
 variable = data["variable"]
 interaction_variable = data["interaction_variable"]
-
-# Write the variables to the validation file for further debugging
-with open('validation_output.txt', 'a') as f:
-    f.write(f"Decoded variable: {variable}\n")
-    f.write(f"Decoded interaction_variable: {interaction_variable}\n")
 
 # Use 'Agg' backend to prevent figures from being displayed
 matplotlib.use('Agg')
