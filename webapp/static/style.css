@@ -437,3 +437,226 @@ justify-content: center;
 .table-tight-padding th {
   padding: 6px 12px; /* Adjust the padding values as needed */
 }
+
+/*  */
+/* Ensure the entire layout uses Flexbox for responsiveness */
+
+
+#logPerCapitaIncome, #pivotTable {
+  flex: 1 1 30%; /* Let them take 30% width each */
+  min-width: 250px; /* Ensure they don't get too small */
+  margin: 10px;
+}
+
+.graphical-result {
+  flex: 1 1 60%; /* Take up the remaining space */
+  min-width: 400px;
+  margin: 10px;
+}
+
+/* Make the chart container responsive */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* Let height adjust naturally */
+  max-width: 100%;
+}
+
+/* Styling adjustments to buttons */
+.chart-buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.chart-buttons button {
+  flex: 1 1 auto;
+  margin: 5px;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+/* Make sure the Pivot Table stays consistent */
+.pivot-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* Ensure the Graphical Result section is flexible */
+#graphicalResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 300px;
+  padding: 15px;
+}
+
+/* Adjust the options to be flexible */
+.options-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* Chart container with controlled max height/width */
+.chart-container {
+  position: relative;
+  width: 100%; /* Keep width fluid */
+  max-width: 900px; /* Limit the max width */
+  height: 500px; /* Fix the height to avoid undesirable scaling */
+  margin: auto;
+}
+
+/* Ensure the white grid or background scales appropriately */
+canvas {
+  max-width: 100%;
+  height: auto; /* Scale height automatically */
+}
+
+@media (max-width: 768px) {
+  .funkyradio label {
+      font-size: 0.8rem; /* 较小屏幕时字体变小 */
+  }
+}
+
+@media (min-width: 769px) {
+  .funkyradio label {
+      font-size: 1rem; /* 较大屏幕时字体恢复正常 */
+  }
+}
+
+/* style for 一排线 */
+.graphical-result-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  /* background-color: #f8f9fa; */
+  /* border: 1px solid #ddd; */
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+}
+
+.graphical-result-label {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.dropdown-group {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.dropdown-group .btn {
+  white-space: nowrap;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.income-button {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.chart-button {
+  background-color: #ffc107;
+  color: white;
+}
+
+.boxplot-button {
+  background-color: #28a745;
+  color: white;
+}
+
+
+/* Container styling for dynamic resizing */
+#checkboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust gap between checkboxes as needed */
+  justify-content: center;
+  align-items: center;
+}
+
+.form-check {
+  flex: 1 1 auto; /* Allow items to grow and shrink */
+  /* width: 100px; Minimum width of each checkbox container */
+  width: 150px; /* Set maximum width to keep uniformity */
+  max-width: 150px;
+}
+
+.label {
+  font-size: 1rem; /* Base font size */
+}
+
+
+
+/* Resizing based on viewport width */
+@media (min-width: 576px) {
+  .label {
+      font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .label {
+      font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .label {
+      font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .label {
+      font-size: 1.4rem;
+  }
+}
+
+
+/* 不能按的键颜色 */
+.disabled {
+  color: #060606 !important;
+  pointer-events: none;
+}
+
+.custom-cursor-target {
+  pointer-events: none;
+}
+
+.dropdown-item.custom-cursor-target:hover {
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) { /* Adjust breakpoint as necessary */
+  .navbar-collapse {
+    display: none !important; /* Ensure it's collapsed */
+  }
+}
+
+/* Show the navbar when toggler is clicked */
+.navbar-collapse.show {
+  display: block !important;
+}
+
+
+
+.navbar-nav .nav-link {
+  color: #000; /* Default link color */
+  font-weight: normal; /* Default font weight */
+  text-decoration: none; /* Remove underline */
+}
+
+.navbar-nav .nav-link.active {
+  color: blue; /* Color for the active link */
+  font-weight: bold; /* Bold text for the active link */
+}
