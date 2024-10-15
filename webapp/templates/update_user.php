@@ -34,7 +34,7 @@ try {
         echo "
         <script>
             alert('Updated Successfully');
-            window.location.href = '../shap_plot.php';
+            window.location.href = '../shap_plot.html';
         </script>
         ";
 

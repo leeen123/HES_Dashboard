@@ -92,7 +92,7 @@ if (isset($_POST['verify'])) {
 
         if ($codeExist && $codeExist['verification_code'] == $enteredVerificationCode) {
             // OTP is correct
-            echo "<script>alert('Verification successful!'); window.location.href = './shap_plot.php';</script>";
+            echo "<script>alert('Verification successful!'); window.location.href = './shap_plot.html';</script>";
             session_destroy();
         } else {
             // OTP is incorrect

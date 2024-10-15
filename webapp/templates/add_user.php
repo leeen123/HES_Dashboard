@@ -104,7 +104,7 @@ if (isset($_POST['verify'])) {
             echo "
             <script>
                 alert('Verification successful!');
-                window.location.href = './shap_plot.php';
+                window.location.href = './shap_plot.html';
             </script>
             ";
             // 上面直接放link
