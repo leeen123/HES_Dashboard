@@ -146,7 +146,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         
       
       <div class="blockarea ml-3 mb-4 chart-vh compare-col-order" style="display: flex; flex-direction: column;">
-        <div class="px-3 d-flex justify-content-around flex-grow-1" style="overflow: hidden;">
+        <div id="chart-body" class="px-3 d-flex justify-content-around flex-grow-1 pie-chart-selected" style="overflow: hidden;">
             <div class="chart-container active" id="chart-container" style="flex: 1; min-width: 48%; height: 100%;">
                 <canvas id="boxplotChart" class="boxplot-chart-size" style="height: 100%; width: 100%;"></canvas>
             </div>
@@ -439,7 +439,12 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
       'T20': {border: '#8a0005', fill: 'rgba(138, 0, 5, 0.2)'}
     };
 
+    var targetElement = document.getElementById('chart-body'); 
+
     if (chartType === 'boxplot') {
+
+      targetElement.classList.remove('pie-chart-selected');
+
       chartitle = "Boxplot Chart";
 
       for (var i = 0; i < orderedCategories.length; i++) {
@@ -465,6 +470,9 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         data: datasetArray
       }];
     } else if (chartType === 'bar') {
+
+      targetElement.classList.remove('pie-chart-selected');
+
       chartitle = "Stacked Bar Chart";
 
       var stackedData = {};
@@ -527,6 +535,9 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         });
       }
     } else if (chartType === 'pie') {
+      // Add the class when the pie chart is selected
+      targetElement.classList.add('pie-chart-selected');
+
       chartitle = "Cluster Category Pie Chart";
 
       $('#chart-container2').addClass('active');
@@ -535,135 +546,151 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
       var iccontext = iccanvas.getContext('2d');
 
       if (iccanvas.chart) {
-        iccanvas.chart.destroy();
+          iccanvas.chart.destroy();
       }
 
       var categoryData = {
-        'Clusters': {},
-        'IncomeCategories': {}
+          'Clusters': {},
+          'IncomeCategories': {}
       };
 
       for (var i = 0; i < variableData.length; i++) {
-        var cluster = clusterData[i];
-        var incomeCategory = incomeCategoryData[i];
-        var value = variableData[i];
+          var cluster = clusterData[i];
+          var incomeCategory = incomeCategoryData[i];
+          var value = variableData[i];
 
-        if (!categoryData['Clusters'][cluster]) {
-          categoryData['Clusters'][cluster] = {};
-        }
-        if (!categoryData['IncomeCategories'][incomeCategory]) {
-          categoryData['IncomeCategories'][incomeCategory] = {};
-        }
+          if (!categoryData['Clusters'][cluster]) {
+              categoryData['Clusters'][cluster] = {};
+          }
+          if (!categoryData['IncomeCategories'][incomeCategory]) {
+              categoryData['IncomeCategories'][incomeCategory] = {};
+          }
 
-        if (!categoryData['Clusters'][cluster][value]) {
-          categoryData['Clusters'][cluster][value] = 0;
-        }
-        if (!categoryData['IncomeCategories'][incomeCategory][value]) {
-          categoryData['IncomeCategories'][incomeCategory][value] = 0;
-        }
+          if (!categoryData['Clusters'][cluster][value]) {
+              categoryData['Clusters'][cluster][value] = 0;
+          }
+          if (!categoryData['IncomeCategories'][incomeCategory][value]) {
+              categoryData['IncomeCategories'][incomeCategory][value] = 0;
+          }
 
-        categoryData['Clusters'][cluster][value]++;
-        categoryData['IncomeCategories'][incomeCategory][value]++;
+          categoryData['Clusters'][cluster][value]++;
+          categoryData['IncomeCategories'][incomeCategory][value]++;
       }
 
       var datasetArray = [];
       var datasetIncomeCategories = [];
 
+      // Define color ranges for each cluster and income category
+      var colorRangesClusters = {
+          '0': { start: 'rgba(214, 39, 40, 0.5)', end: 'rgba(214, 39, 40, 1)' },
+          '1': { start: 'rgba(255, 127, 14, 0.5)', end: 'rgba(255, 127, 14, 1)' },
+          '2': { start: 'rgba(22, 102, 22, 0.5)', end: 'rgba(22, 102, 22, 1)' },
+          '3': { start: 'rgba(51, 122, 183, 0.5)', end: 'rgba(51, 122, 183, 1)' },
+          '4': { start: 'rgba(9, 0, 141, 0.5)', end: 'rgba(9, 0, 141, 1)' }
+      };
+
+      var colorRangesIncomeCategories = {
+          'B40': { start: 'rgba(140, 86, 75, 0.5)', end: 'rgba(140, 86, 75, 1)' },
+          'M40': { start: 'rgba(210, 169, 37, 0.5)', end: 'rgba(210, 169, 37, 1)' },
+          'T20': { start: 'rgba(138, 0, 5, 0.5)', end: 'rgba(138, 0, 5, 1)' }
+      };
+
+      // Prepare data for cluster pie chart
       for (var cluster in categoryData['Clusters']) {
-        if (selectedCategories.includes(cluster)) {
-          var data = [];
-          var backgroundColors = [];
-          var borderColors = [];
+          if (selectedCategories.includes(cluster)) {
+              var data = [];
+              var backgroundColors = [];
+              var borderColors = [];
 
-          var values = Object.keys(categoryData['Clusters'][cluster]).sort((a, b) => a - b);
+              var values = Object.keys(categoryData['Clusters'][cluster]).sort((a, b) => a - b);
 
-          var colorStep = 1 / values.length;
+              var colorStep = 1 / values.length;
 
-          values.forEach(function (value, index) {
-            var colorValue = colorStep * (index + 1);
+              values.forEach(function (value, index) {
+                  var colorValue = colorStep * (index + 1);
 
-            var colorStart = colorRangesClusters[cluster].start;
-            var colorEnd = colorRangesClusters[cluster].end;
+                  var colorStart = colorRangesClusters[cluster].start;
+                  var colorEnd = colorRangesClusters[cluster].end;
 
-            var interpolatedColor = interpolateColor(colorStart, colorEnd, colorValue);
+                  var interpolatedColor = interpolateColor(colorStart, colorEnd, colorValue);
 
-            data.push(categoryData['Clusters'][cluster][value]);
-            backgroundColors.push(interpolatedColor);
-            borderColors.push('rgba(255, 255, 255, 1)');
-          });
+                  data.push(categoryData['Clusters'][cluster][value]);
+                  backgroundColors.push(interpolatedColor);
+                  borderColors.push('rgba(255, 255, 255, 1)');
+              });
 
-          datasetArray.push({
-            data: data,
-            backgroundColor: backgroundColors,
-            borderColor: borderColors,
-            borderWidth: 1,
-            label: 'Cluster ' + cluster
-          });
-        }
+              datasetArray.push({
+                  data: data,
+                  backgroundColor: backgroundColors,
+                  borderColor: borderColors,
+                  borderWidth: 1,
+                  label: 'Cluster ' + cluster
+              });
+          }
       }
 
       var sortedIncomeCategories = {};
       orderedCategories.forEach(category => {
-        if (categoryData['IncomeCategories'].hasOwnProperty(category)) {
-          sortedIncomeCategories[category] = categoryData['IncomeCategories'][category];
-        }
+          if (categoryData['IncomeCategories'].hasOwnProperty(category)) {
+              sortedIncomeCategories[category] = categoryData['IncomeCategories'][category];
+          }
       });
 
       for (var category in sortedIncomeCategories) {
-        if (selectedCategories.includes(category)) {
+          if (selectedCategories.includes(category)) {
 
-          var data = [];
-          var backgroundColors = [];
-          var borderColors = [];
+              var data = [];
+              var backgroundColors = [];
+              var borderColors = [];
 
-          var values = Object.keys(categoryData['IncomeCategories'][category]).sort((a, b) => a - b);
+              var values = Object.keys(categoryData['IncomeCategories'][category]).sort((a, b) => a - b);
 
-          var colorStep = 1 / values.length;
+              var colorStep = 1 / values.length;
 
-          values.forEach(function (value, index) {
-            var colorValue = colorStep * (index + 1);
+              values.forEach(function (value, index) {
+                  var colorValue = colorStep * (index + 1);
 
-            var colorStart = colorRangesIncomeCategories[category].start;
-            var colorEnd = colorRangesIncomeCategories[category].end;
+                  var colorStart = colorRangesIncomeCategories[category].start;
+                  var colorEnd = colorRangesIncomeCategories[category].end;
 
-            var interpolatedColor = interpolateColor(colorStart, colorEnd, colorValue);
+                  var interpolatedColor = interpolateColor(colorStart, colorEnd, colorValue);
 
-            data.push(sortedIncomeCategories[category][value]);
-            backgroundColors.push(interpolatedColor);
-            borderColors.push('rgba(255, 255, 255, 1)');
-          });
+                  data.push(sortedIncomeCategories[category][value]);
+                  backgroundColors.push(interpolatedColor);
+                  borderColors.push('rgba(255, 255, 255, 1)');
+              });
 
-          datasetIncomeCategories.push({
-            data: data,
-            backgroundColor: backgroundColors,
-            borderColor: borderColors,
-            borderWidth: 1,
-          });
-        }
+              datasetIncomeCategories.push({
+                  data: data,
+                  backgroundColor: backgroundColors,
+                  borderColor: borderColors,
+                  borderWidth: 1,
+              });
+          }
       }
 
       iccanvas.chart = new Chart(iccontext, {
-        type: 'pie',
-        data: {
-          labels: variableDescriptions[variable].label,
-          datasets: datasetIncomeCategories
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top'
-            },
-            title: {
-              display: true,
-              text: 'Income Category Pie Chart'
-            }
+          type: 'pie',
+          data: {
+            labels: variableDescriptions[variable].label,
+            datasets: datasetIncomeCategories
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                  legend: {
+                    display: false,
+                    position: 'top'
+                  },
+                  title: {
+                      display: true,
+                      text: 'Income Category Pie Chart'
+                  }
+              }
           }
-        }
       });
-    }
+    } 
 
     for (let i = 0; i < selectedCategories.length; i++) {
       if (['0', '1', '2', '3', '4'].includes(selectedCategories[i])) {
@@ -682,7 +709,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            display: (chartType !== 'boxplot'),
+            display: false,
             position: 'top'
           },
           title: {

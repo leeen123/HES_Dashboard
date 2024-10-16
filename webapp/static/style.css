@@ -595,6 +595,11 @@ canvas {
   margin-left: 15px;
 }
 
+.pie-chart-selected {
+  display: flex;
+  flex-direction: row !important;
+}
+
 /* Resizing based on viewport width */
 @media (min-width: 576px) {
   .label {
@@ -623,6 +628,11 @@ canvas {
 }
 
 @media (max-width: 992px) {
+
+  .pie-chart-selected {
+    display: flex;
+    flex-direction: column !important;
+  }
   
   .col-order {
     display: flex;
