@@ -16,10 +16,10 @@
     <button class="navbar-toggler" onclick="toggleNavbar()">☰</button>
     <ul class="navbar-nav d-flex flex-row" id="navbarNav">
       <li class="nav-item">
-        <a class="nav-link" href="shap_plot.html" id="shap-link">SHAP Plot Analysis</a>
+        <a class="nav-link" href="shap_plot.php" id="shap-link">SHAP Plot Analysis</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="compare.html" id="compare-link">Comparing Analysis</a>
+        <a class="nav-link active" href="compare.php" id="compare-link">Comparing Analysis</a>
       </li>
       </li>
     </ul>
