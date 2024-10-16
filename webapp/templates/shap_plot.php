@@ -19,14 +19,16 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
 </head>
 <body>
-  <div class="blockarea navbar1" style="padding: 10px 20px;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Expenditure Analysis</a>
+  <div class="blockarea navbar1 justify-content-between align-items-start" style="padding: 10px 20px;">
+    <nav class="navbar navbar-expand-md navbar-light row" style="justify-content: start;">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav d-flex flex-row" id="navbarNav">
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/">Expenditure Analysis</a>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link active" href="shap_plot.php" id="shap-link" style="margin-right: 10px;">SHAP Plot Analysis</a>
           </li>
@@ -36,6 +38,9 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         </ul>
       </div>
     </nav>
+      <a class="nav-link" href="logout.php" id="logout-link">
+        <button class="btn btn-danger">Logout</button>
+      </a>
   </div>
 
   <div id="shap-plot-section" class="container-cus">
@@ -210,8 +215,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="../static/data.js"></script>
   <script>
     var canvas;

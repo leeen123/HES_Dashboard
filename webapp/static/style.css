@@ -438,10 +438,6 @@ justify-content: center;
   padding: 6px 12px; /* Adjust the padding values as needed */
 }
 
-/*  */
-/* Ensure the entire layout uses Flexbox for responsiveness */
-
-
 #logPerCapitaIncome, #pivotTable {
   flex: 1 1 30%; /* Let them take 30% width each */
   min-width: 250px; /* Ensure they don't get too small */
@@ -595,7 +591,9 @@ canvas {
   font-size: 1rem; /* Base font size */
 }
 
-
+.compare-col-order {
+  margin-left: 15px;
+}
 
 /* Resizing based on viewport width */
 @media (min-width: 576px) {
@@ -608,11 +606,36 @@ canvas {
   .label {
       font-size: 1.2rem;
   }
+
+  .chart-md-75 {
+    flex: 0 0 75%;
+  }
+
+  .chart-vh {
+    height: 72.5vh; 
+  }
 }
 
 @media (min-width: 992px) {
   .label {
       font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .compare-col-order {
+    margin-left: 0px !important;
+  }
+  
+  .col-order {
+    display: flex;
+    flex-direction: column;
+    align-items: start !important;
+  }
+
+  .col-order .col-item{
+    padding-top: 10px;
   }
 }
 
@@ -623,7 +646,7 @@ canvas {
 }
 
 
-/* 不能按的键颜色 */
+
 .disabled {
   color: #060606 !important;
   pointer-events: none;
@@ -647,8 +670,6 @@ canvas {
 .navbar-collapse.show {
   display: block !important;
 }
-
-
 
 .navbar-nav .nav-link {
   color: #000; /* Default link color */
