@@ -110,7 +110,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
           <div class="col-12 col-md-6 blockarea d-flex flex-column" style="height: auto;">
             <h5 class="block-title">SHAP Dependence Plot</h5>
             <div class="d-flex justify-content-start align-items-start flex-grow-1" style="width: 100%;">
-              <img id="shap-plot" src="../static/shap_plot.png" alt="SHAP Dependence Plot" class="img-fluid" style="max-width: 100%; height: auto; flex-grow: 1;">
+              <img id="shap-plot" src="static/shap_plot.png" alt="SHAP Dependence Plot" class="img-fluid" style="max-width: 100%; height: auto; flex-grow: 1;">
             </div>
           </div>
 
@@ -311,130 +311,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         });
         return counts;
       }
-
-      function renderChart(canvasId, data, label, variable) {
-
-        piedata = data;
-
-        console.log("piedata: ", piedata)
-
-        var legend = (data.filter(onlyUnique)).sort();
-
-        canvas = document.getElementById(canvasId);
-        context = canvas.getContext('2d');
-
-        console.log("canvas: ",canvas)
-
-        if (canvas.chart) {
-          console.log("here")
-          canvas.chart.destroy();
-        }
-
-        if (chartType[variable] === 'bar') {
-          legend =[];
-
-          data = normalizeData(data);
-
-          console.log("normalizedData recieved: ", data.sort())
-
-          const minValue = Math.min(...data);
-          const maxValue = Math.max(...data);
-
-          console.log("min ", minValue)
-          console.log("max ",maxValue)
-
-          range = 20; 
-          // Calculate the width of each bin
-          const binWidth = (maxValue - minValue) / range;
-
-          const binnedData = binData(data, binWidth);
-
-          console.log("binWidth :", binWidth)
-
-          console.log("data :", data)
-
-            // Step 4: Prepare Data for Chart.js
-            const chartData = {
-                labels: binnedData.map(d => d.bin),
-                datasets: [{
-                    label: 'Normalized Distribution',
-                    data: binnedData.map(d => d.count),
-                    backgroundColor: 'rgba(3, 136, 252)',
-                    borderWidth: 1
-                }]
-            };
-
-            // Step 5: Configure Chart.js
-            const config = {
-                type: 'bar',
-                data: chartData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false, // This allows the chart to adjust to the container's aspect ratio
-                    scales: {
-                        x: {
-                            type: 'linear',
-                            position: 'bottom',
-                            title: {
-                                display: true,
-                                text: 'Value'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Frequency'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'top',
-                        },
-                        tooltip: {
-                            enabled: true,
-                        }
-                    }
-                }
-            };
-            canvas.chart = new Chart(context, config);
-        }
-        else{
-
-          const aggregatedData = aggregateData(data);
-          const labels = Object.keys(aggregatedData);
-          const chartData = Object.values(aggregatedData);
-
-          console.log("second data: ", aggregatedData)
-
-          canvas.chart = new Chart(context, {
-            type: 'doughnut',
-            data: {
-                labels: variableDescriptions[variable].label,
-                datasets: [{
-                    label: 'Interaction',
-                    data: chartData,
-                    backgroundColor: ['rgba(255, 0, 0, 0.6)','rgba(3, 136, 252,0.6)', 'rgba(0, 255, 0, 0.6)','rgba(150, 255, 0, 0.6)','rgba(255, 255, 0, 0.6)','rgba(255, 154, 0, 0.6)'], // Adjust colors as needed
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false, // This allows the chart to adjust to the container's aspect ratio
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'right',
-                    },
-                    tooltip: {
-                        enabled: true,
-                    }
-                }
-            }
-          });
-
-        }
-        }
 
       function updateVariableDescriptions() {
         var xVariable = $('#variable').val();
