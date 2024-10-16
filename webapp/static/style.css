@@ -623,10 +623,6 @@ canvas {
 }
 
 @media (max-width: 992px) {
-
-  .compare-col-order {
-    margin-left: 0px !important;
-  }
   
   .col-order {
     display: flex;
@@ -663,6 +659,10 @@ canvas {
 @media (max-width: 768px) { /* Adjust breakpoint as necessary */
   .navbar-collapse {
     display: none !important; /* Ensure it's collapsed */
+  }
+
+  .compare-col-order {
+    margin-left: 0px !important;
   }
 }
 

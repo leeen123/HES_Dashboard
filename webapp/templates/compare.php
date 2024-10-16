@@ -112,63 +112,32 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
               </div>
             </form>
             <div id="dropdown1" class="col-item dropdown mr-3">
-              <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">
                 Chart <i class="fas fa-chevron-down"></i>
               </button>
               <ul id="dropdown-menu1" class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li>
-                  <a class="dropdown-item" href="#" data-value="chart">
-                    Chart
-                  </a>
+                  <a class="dropdown-item" href="#" data-value="chart">Chart</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" data-value="table">
-                    Table
-                  </a>
+                  <a class="dropdown-item" href="#" data-value="table">Table</a>
                 </li>
               </ul>
             </div>
             <div id="dropdown2" class="col-item dropdown">
-              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                
-                <svg fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve">
-                  <path id="box--plot_1_" d="M31,31.36H1c-0.199,0-0.36-0.161-0.36-0.36V1h0.72v29.64H31V31.36z M14,27.36H6v-0.72h3.64v-3.28H6
-                     c-0.199,0-0.36-0.161-0.36-0.36V11c0-0.199,0.161-0.36,0.36-0.36h3.64V7.36H6V6.64h8v0.72h-3.64v3.28H14
-                     c0.199,0,0.36,0.161,0.36,0.36v12c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H14V27.36z M6.36,22.64h7.28v-5.28H6.36V22.64z
-                      M6.36,16.64h7.28v-5.28H6.36V16.64z M28,23.36h-8v-0.72h3.64v-3.28H20c-0.199,0-0.36-0.161-0.36-0.36V7
-                     c0-0.199,0.161-0.36,0.36-0.36h3.64V3.36H20V2.64h8v0.72h-3.64v3.28H28c0.199,0,0.36,0.161,0.36,0.36v12
-                     c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H28V23.36z M20.36,18.64h7.279v-5.28H20.36V18.64z M20.36,12.64h7.279V7.36H20.36V12.64z"
-                  />
-                  <rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>
-                </svg>Boxplot Chart <i class="fas fa-chevron-down"></i>
+              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-expanded="false">
+                <!-- SVG icon and text -->
+                Boxplot Chart <i class="fas fa-chevron-down"></i>
               </button>
               <ul id="dropdown-menu2" class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton2">
                 <li>
-                  <a class="dropdown-item" href="#" data-value="boxplot">
-                    <svg fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve">
-                      <path id="box--plot_1_" d="M31,31.36H1c-0.199,0-0.36-0.161-0.36-0.36V1h0.72v29.64H31V31.36z M14,27.36H6v-0.72h3.64v-3.28H6
-                         c-0.199,0-0.36-0.161-0.36-0.36V11c0-0.199,0.161-0.36,0.36-0.36h3.64V7.36H6V6.64h8v0.72h-3.64v3.28H14
-                         c0.199,0,0.36,0.161,0.36,0.36v12c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H14V27.36z M6.36,22.64h7.28v-5.28H6.36V22.64z
-                          M6.36,16.64h7.28v-5.28H6.36V16.64z M28,23.36h-8v-0.72h3.64v-3.28H20c-0.199,0-0.36-0.161-0.36-0.36V7
-                         c0-0.199,0.161-0.36,0.36-0.36h3.64V3.36H20V2.64h8v0.72h-3.64v3.28H28c0.199,0,0.36,0.161,0.36,0.36v12
-                         c0,0.199-0.161,0.36-0.36,0.36h-3.64v3.279H28V23.36z M20.36,18.64h7.279v-5.28H20.36V18.64z M20.36,12.64h7.279V7.36H20.36V12.64z"
-                      />
-                      <rect id="_Transparent_Rectangle" style="fill:none;" width="32" height="32"/>
-                    </svg>
-                    Boxplot Chart
-                  </a>
+                  <a class="dropdown-item" href="#" data-value="boxplot">Boxplot Chart</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" data-value="bar">
-                    <svg viewBox="0 -1.5 2253 2253" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect id="stacked_bar_chart" x="1.997" y="0" width="2250" height="2250" style="fill:none;"></rect> <rect x="397.831" y="1187.5" width="312.5" height="666.667" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="397.831" y="1000" width="312.5" height="187.5" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="397.831" y="708.333" width="312.5" height="281.25" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1437.5" width="312.5" height="416.667" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="1229.17" width="312.5" height="625" style="fill:#303030;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1312.5" width="312.5" height="125" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="914.583" width="312.5" height="314.583" style="fill:#575757;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="918.664" y="1062.5" width="312.5" height="250" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <rect x="1439.5" y="395.833" width="312.5" height="518.75" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></rect> <g> <path d="M289.497,387.5l-100,-200l-100,200l200,-0Z" style="fill:#202020;"></path> <path d="M1864.5,1962.5l200,100l-200,100l0,-200Z" style="fill:#202020;"></path> <path d="M189.497,347.5l0,1715l1715,-0" style="fill:none;stroke:#202020;stroke-width:66.67px;"></path> </g> </g></svg>
-                    Stacked Bar Chart
-                  </a>
+                  <a class="dropdown-item" href="#" data-value="bar">Stacked Bar Chart</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#" data-value="pie">
-                    <svg viewBox="0 -1.5 2253 2253" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><rect id="donut_chart" x="1.997" y="0" width="2250" height="2250" style="fill:none;"></rect><path d="M1147.83,208.333c-517.767,0 -937.5,419.733 -937.5,937.5c-0,428.307 290.274,802.155 705.228,908.271l116.136,-454.135c-207.477,-53.058 -352.614,-239.982 -352.614,-454.136c-0,-258.883 209.866,-468.75 468.75,-468.75l-0,-468.75Z" style="fill:#4f4f4f;stroke:#202020;stroke-width:66.67px;"></path><path d="M1997.49,749.576c-153.977,-330.174 -485.321,-541.243 -849.663,-541.243l-0,468.704c182.171,0 347.843,105.535 424.832,270.622l424.831,-198.083Z" style="fill:#858585;stroke:#202020;stroke-width:66.67px;"></path><path d="M905.188,2051.39c500.124,134.008 1014.19,-162.788 1148.2,-662.913c64.353,-240.168 30.664,-496.064 -93.656,-711.393l-405.95,234.375c62.16,107.665 79.005,235.613 46.828,355.697c-67.003,250.062 -324.036,398.46 -574.099,331.456l-121.321,452.778Z" style="fill:#eee;stroke:#202020;stroke-width:66.67px;"></path></g></svg>
-                    Multi Series Pie Chart
-                  </a>
+                  <a class="dropdown-item" href="#" data-value="pie">Multi Series Pie Chart</a>
                 </li>
               </ul>
             </div>
@@ -248,9 +217,9 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@sgratzl/chartjs-chart-boxplot"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="../static/data.js"></script> 
+  <script src="../static/data.js"></script>
   <script>
     $(document).ready(function() {
   function isBoxplotOnlyVariable(variable) {
