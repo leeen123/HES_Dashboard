@@ -28,10 +28,10 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav d-flex flex-row" id="navbarNav">
           <li class="nav-item">
-            <a class="nav-link active" href="/shap" id="shap-link" style="margin-right: 10px;">SHAP Plot Analysis</a>
+            <a class="nav-link active" href="shap_plot.php" id="shap-link" style="margin-right: 10px;">SHAP Plot Analysis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/compare" id="compare-link">Comparing Analysis</a>
+            <a class="nav-link" href="compare.php" id="compare-link">Comparing Analysis</a>
           </li>
         </ul>
       </div>
@@ -218,16 +218,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     var context;
 
     $(document).ready(function() {
-      // Navigation handling
-      $('#shap-link').click(function(e) {
-        e.preventDefault();
-        window.location.href = '/';
-      });
-
-      $('#compare-link').click(function(e) {
-        e.preventDefault();
-        window.location.href = '/test';
-      });
 
       function updateCanvasSize() {
         // Adjust canvas size for mobile
