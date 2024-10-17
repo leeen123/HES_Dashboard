@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $variable = $_POST['variable'];
 
     // Load the CSV data or results you want to return (example)
-    $k_mean_analy = readCSV("../../data/k_mean_analy.csv");
+    $k_mean_analy = readCSV("data/k_mean_analy.csv");
 
     $headers = $k_mean_analy[0];  // First row contains headers
     $data = array_slice($k_mean_analy, 1);  // Remove the header row to get only data

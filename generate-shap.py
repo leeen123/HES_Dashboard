@@ -22,8 +22,8 @@ interaction_variable = data["interaction_variable"]
 matplotlib.use('Agg')
 
 # Load SHAP values and test data
-shap_values = pd.read_csv("../../data/shap_values2.csv").to_numpy()
-x_test = pd.read_csv("../../data/x_test.csv")
+shap_values = pd.read_csv("data/shap_values2.csv").to_numpy()
+x_test = pd.read_csv("data/x_test.csv")
 
 # Generate SHAP dependence plot
 fig, ax = plt.subplots(figsize=(6, 4))
@@ -33,6 +33,6 @@ shap.dependence_plot(variable, shap_values, x_test, interaction_index=interactio
 fig.tight_layout()
 
 # Save the SHAP plot to a static file
-shap_image_path = "../static/shap_plot.png"
+shap_image_path = "static/shap_plot.png"
 fig.savefig(shap_image_path, bbox_inches='tight')
 plt.close(fig)

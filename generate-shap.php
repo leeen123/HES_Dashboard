@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $out = shell_exec($command);
 
     // Load the CSV data or results you want to return (example)
-    $x_test = readCSV("../../data/x_test.csv");
+    $x_test = readCSV("data/x_test.csv");
 
     // Assuming $x_test is a multi-dimensional array where the first row contains headers
     $headers = $x_test[0];  // Extract the headers
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Prepare and send JSON response
     $response = array(
-        'shap_plot' => '../static/shap_plot.png',
+        'shap_plot' => 'static/shap_plot.png',
         'variable_data' => $variable_data,
         'interaction_variable_data' => $interaction_variable_data
     );

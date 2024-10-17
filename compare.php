@@ -15,7 +15,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
   <title>Household Expenditure Power Analysis</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-  <link href="../static/style.css" rel="stylesheet">
+  <link href="static/style.css" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
 </head>
 <body>
@@ -219,7 +219,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="../static/data.js"></script>
+  <script src="static/data.js"></script>
   <script>
     $(document).ready(function() {
   function isBoxplotOnlyVariable(variable) {

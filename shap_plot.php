@@ -15,7 +15,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <title>Household Expenditure Power Analysis</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href="../static/style.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
 </head>
 <body>
@@ -115,7 +115,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
           <div class="col-12 col-md-6 blockarea d-flex flex-column" style="height: auto;">
             <h5 class="block-title">SHAP Dependence Plot</h5>
             <div class="d-flex justify-content-start align-items-start flex-grow-1" style="width: 100%;">
-              <img id="shap-plot" src="../static/shap_plot.png" alt="SHAP Dependence Plot" class="img-fluid" style="max-width: 100%; height: auto; flex-grow: 1;">
+              <img id="shap-plot" src="static/shap_plot.png" alt="SHAP Dependence Plot" class="img-fluid" style="max-width: 100%; height: auto; flex-grow: 1;">
             </div>
           </div>
 
@@ -215,7 +215,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="../static/data.js"></script>
+  <script src="static/data.js"></script>
   <script>
     var canvas;
     var context;
