@@ -146,7 +146,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         
       
       <div class="blockarea ml-3 mb-4 chart-vh compare-col-order" style="display: flex; flex-direction: column;">
-        <div id="chart-body" class="px-3 d-flex justify-content-around flex-grow-1 pie-chart-selected" style="overflow: hidden;">
+        <div id="chart-body" class="px-3 justify-content-around flex-grow-1 pie-chart-selected" style="overflow: hidden;">
             <div class="chart-container active" id="chart-container" style="flex: 1; min-width: 48%; height: 100%;">
                 <canvas id="boxplotChart" class="boxplot-chart-size" style="height: 100%; width: 100%;"></canvas>
             </div>
@@ -312,6 +312,8 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
   const dropdown2 = document.getElementById('dropdownMenuButton2');
   const contenttitle = document.getElementById('content-title');
   const dropdownMenu2 = document.querySelector('.dropdown-menu[aria-labelledby="dropdownMenuButton2"]');
+  const dropdowntrue1 = document.getElementById('dropdownMenuButton1');
+  const chartbody = document.getElementById('chart-body');
 
   $('.dropdown-item').click(function(e) {
     e.preventDefault();
@@ -333,6 +335,24 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     var button = $(this).closest('.dropdown').find('.dropdown-toggle');
     button.text($(this).text()); // Update button text with selected item
     updatePlot(selectedChartType);
+  });
+
+  $('#dropdown1 .dropdown-item').click(function(e) {
+      e.preventDefault();
+      
+      // Get the selected value (data-value attribute)
+      var selectedValue = $(this).attr('data-value');
+      
+      // Update button text with selected item
+      var button = $(this).closest('.dropdown').find('.dropdown-toggle');
+      button.text($(this).text());
+
+      // Check if the selected value is "table" or "chart" and toggle dropdown2 visibility
+      if (selectedValue === 'table') {
+          $('#chart-body').css('display', 'none'); // Hide dropdown2 when "Table" is selected
+      } else if (selectedValue === 'chart') {
+          $('#chart-body').css('display', 'flex'); // Show dropdown2 when "Chart" is selected
+      }
   });
 
   function updateVariableDescriptions() {
