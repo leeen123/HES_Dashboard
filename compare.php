@@ -863,26 +863,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     updatePlot();
   });
 
-  function updateChartVisibility() {
-    var selectedCategories = getSelectedCategories();
-    var formData = new FormData($('#shap-plot-form')[0]);
-
-    $.ajax({
-      url: '/test',
-      type: 'POST',
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function(response) {
-        var variableData = response.variable_data;
-        var clusterData = response.cluster_data;
-        var incomeCategoryData = response.income_category_data;
-
-        renderChart(variableData, clusterData, incomeCategoryData, selectedCategories);
-      }
-    });
-  }
-
   function interpolateColor(colorStart, colorEnd, value) {
     var start = parseRGBA(colorStart);
     var end = parseRGBA(colorEnd);

@@ -12,7 +12,7 @@ echo $output;
   <title>Household Expenditure Power Analysis</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-  <link href="../static/style.css" rel="stylesheet">
+  <link href="static/style.css" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
 </head>
 <body>

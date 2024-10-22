@@ -4,7 +4,7 @@
  * PHPMailer - PHP email creation and transport class.
  * PHP Version 5.5.
  *
- * @see https://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
+ * @see https://github.comphpmailerphpmailer/ The PHPMailer GitHub project
  *
  * @author    Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author    Jim Jagielski (jimjag) <jimjag@gmail.com>
@@ -1756,7 +1756,7 @@ class PHPMailer
             //allow sendmail to choose a default envelope sender. It may
             //seem preferable to force it to use the From header as with
             //SMTP, but that introduces new problems (see
-            //<https://github.com/PHPMailer/PHPMailer/issues/2298>), and
+            //<https://github.comphpmailerphpmailer/issues/2298>), and
             //it has historically worked this way.
             $sendmailFmt = '%s -oi -t';
         }
@@ -1825,7 +1825,7 @@ class PHPMailer
      * Fix CVE-2016-10033 and CVE-2016-10045 by disallowing potentially unsafe shell characters.
      * Note that escapeshellarg and escapeshellcmd are inadequate for our purposes, especially on Windows.
      *
-     * @see https://github.com/PHPMailer/PHPMailer/issues/924 CVE-2016-10045 bug report
+     * @see https://github.comphpmailerphpmailer/issues/924 CVE-2016-10045 bug report
      *
      * @param string $string The string to be validated
      *
@@ -2733,7 +2733,7 @@ class PHPMailer
             //Empty string for default X-Mailer header
             $result .= $this->headerLine(
                 'X-Mailer',
-                'PHPMailer ' . self::VERSION . ' (https://github.com/PHPMailer/PHPMailer)'
+                'PHPMailer ' . self::VERSION . ' (https://github.comphpmailerphpmailer)'
             );
         } elseif (is_string($this->XMailer) && trim($this->XMailer) !== '') {
             //Some string
@@ -4289,7 +4289,7 @@ class PHPMailer
                 //Include a link to troubleshooting docs on SMTP connection failure.
                 //This is by far the biggest cause of support questions
                 //but it's usually not PHPMailer's fault.
-                return $this->language[$key] . ' https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting';
+                return $this->language[$key] . ' https://github.comphpmailerphpmailer/wiki/Troubleshooting';
             }
 
             return $this->language[$key];

@@ -261,9 +261,9 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
           processData: false,
           contentType: false,
           success: function(response) {
-            $('#shap-plot').attr('src', '../static/shap_plot.png?' + new Date().getTime());
 
             console.log("response received: ", response);
+            $('#shap-plot').attr('src', response.shap_plot);
     
             // Render variable histogram
             renderChart('variable-histogram', response.variable_data, 'Variable Histogram', variable_selected[0]);

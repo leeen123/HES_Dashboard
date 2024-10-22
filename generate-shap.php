@@ -6,7 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $interaction_variable = $_POST['interaction_variable'];
 
     // Generate the filename for the pre-generated SHAP plot
-    $plot_filename = "{$variable}_{$interaction_variable}.png";
+    if ($variable == $interaction_variable){
+        $plot_filename = "{$variable}.png";
+    }else{
+        $plot_filename = "{$variable}_{$interaction_variable}.png";
+    }
     $plot_path = "static/shap_plots/" . $plot_filename;
 
     // Load the CSV data or results you want to return (example)

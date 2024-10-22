@@ -34,7 +34,7 @@ try {
         echo "
         <script>
             alert('Updated Successfully');
-            window.location.href = '../shap_plot.php';
+            window.location.href = 'shap_plot.php';
         </script>
         ";
 
@@ -43,7 +43,7 @@ try {
         echo "
         <script>
             alert('User Already Exist');
-            window.location.href = '../index.php';
+            window.location.href = 'index.php';
         </script>
         ";
     }

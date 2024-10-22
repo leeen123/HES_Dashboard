@@ -14,7 +14,7 @@ function readCSV($filename) {
 }
 
 // Load CSV data
-$shap_values = readCSV("../../data/shap_values2.csv");
-$x_test = readCSV("../../data/x_test.csv");
-$k_mean_analy = readCSV("../../data/k_mean_analy.csv");
+$shap_values = readCSV("data/shap_values2.csv");
+$x_test = readCSV("data/x_test.csv");
+$k_mean_analy = readCSV("data/k_mean_analy.csv");
 ?>
