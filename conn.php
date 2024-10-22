@@ -1,9 +1,14 @@
 <?php 
 
-$servername = "sql202.infinityfree.com";
-$username = "if0_37531074";
-$password = "rLvKedWuC5epY";
-$db = "if0_37531074_HES_Dashboard";
+// $servername = "sql202.infinityfree.com";
+// $username = "if0_37531074";
+// $password = "rLvKedWuC5epY";
+// $db = "if0_37531074_HES_Dashboard";
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "intern_system";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
