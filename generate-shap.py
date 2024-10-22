@@ -29,7 +29,7 @@ for var in variables:
         
         if var == interaction_var:
             # If the variable and interaction variable are the same, exclude interaction_index
-            shap.dependence_plot(var, shap_values, x_test, ax=ax)
+            shap.dependence_plot(var, shap_values, x_test, ax=ax, interaction_index=None)
             plot_filename = f"{var}.png"
         else:
             # Otherwise, include the interaction_index
